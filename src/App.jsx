@@ -15,6 +15,9 @@ import {
   Store,
   Eye,
   X,
+  Shield,
+  UserX,
+  Lock,
 } from "lucide-react";
 
 /* ------------------------------------------------------------------
@@ -1006,6 +1009,52 @@ export default function ViaExpressa() {
         </div>
       </Section>
 
+      {/* ============ 6.9. SEGURANÇA E CONFORMIDADE ============ */}
+      <Section id="seguranca">
+        <Eyebrow>Confiança técnica</Eyebrow>
+        <H2>
+          Segurança e Compliance:{" "}
+          <span style={{ color: BRAND }}>o risco é zero.</span>
+        </H2>
+        <Lead className="mt-6 max-w-3xl">
+          Arquitetura 100% Web desenhada para aprovação imediata da TI e
+          total conformidade com a LGPD.
+        </Lead>
+
+        <div className="mt-10 sm:mt-16 grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-8">
+          {[
+            {
+              icon: <Shield size={34} />,
+              t: "Sandbox isolado",
+              d: "O sistema roda direto no navegador do smartphone do cliente. Sem downloads de arquivos. O ambiente sandbox do navegador impede fisicamente que a página acesse senhas, contatos, fotos ou dados internos do aparelho.",
+            },
+            {
+              icon: <UserX size={34} />,
+              t: "Zero coleta de dados pessoais",
+              d: "O fluxo Fricção Zero elimina a necessidade de cadastros, logins ou CPF para iniciar o uso. Sem coleta de dados sensíveis, garantindo aderência nativa às regras mais rígidas da LGPD. A única permissão solicitada é o uso da lente da câmera.",
+            },
+            {
+              icon: <Lock size={34} />,
+              t: "Canal criptografado",
+              d: "Toda a comunicação trafega sob protocolo HTTPS com criptografia de ponta a ponta. A exibição do QR Code de acesso em tela digital elimina o risco de fraudes físicas por substituição de adesivos na loja.",
+            },
+          ].map((c) => (
+            <Card key={c.t}>
+              <div style={{ color: BRAND }}>{c.icon}</div>
+              <h3 className="mt-6 text-lg sm:text-xl 2xl:text-2xl font-bold leading-snug">
+                {c.t}
+              </h3>
+              <p
+                className="mt-3 text-sm sm:text-base 2xl:text-xl leading-relaxed"
+                style={{ color: MUTED }}
+              >
+                {c.d}
+              </p>
+            </Card>
+          ))}
+        </div>
+      </Section>
+
       {/* ============ 6.5. VÍDEOS DEMONSTRATIVOS ============ */}
       <Section id="videos">
         <Eyebrow>Prova em vídeo</Eyebrow>
@@ -1182,7 +1231,7 @@ export default function ViaExpressa() {
       <Section id="cta">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
           {/* QR */}
-          <div data-reveal className="flex justify-center lg:justify-start">
+          <div data-reveal className="flex flex-col items-center lg:items-start">
             <div
               className="rounded-3xl p-5 sm:p-6"
               style={{ background: BRAND, boxShadow: `0 0 80px ${BRAND_SOFT}` }}
@@ -1192,6 +1241,29 @@ export default function ViaExpressa() {
               >
                 <QrCode viewBoxSize={320} />
               </div>
+            </div>
+
+            {/* Selo LGPD */}
+            <div
+              className="mt-5 sm:mt-6 rounded-xl px-4 py-3 sm:px-5 sm:py-4 max-w-[280px] sm:max-w-xs"
+              style={{ border: `1px solid ${BRAND}`, background: "rgba(30, 82, 168, 0.08)" }}
+            >
+              <div className="flex items-center gap-2">
+                <ShieldCheck size={18} style={{ color: BRAND, flexShrink: 0 }} />
+                <span
+                  className="text-xs sm:text-sm font-bold"
+                  style={{ color: INK }}
+                >
+                  Ambiente Seguro &amp; Conforme LGPD
+                </span>
+              </div>
+              <p
+                className="mt-1.5 text-[10px] sm:text-xs leading-relaxed"
+                style={{ color: MUTED }}
+              >
+                Criptografia HTTPS ativa. Sem rastreamento de dados ou
+                armazenamento local de informações do usuário.
+              </p>
             </div>
           </div>
 
