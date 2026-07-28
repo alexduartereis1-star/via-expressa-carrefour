@@ -624,6 +624,97 @@ export default function ViaExpressa() {
             </div>
           </Card>
         </div>
+
+        {/* Sinalização Digital Reaproveitada */}
+        <div className="mt-12 sm:mt-16 grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-16 items-center">
+          <div data-reveal>
+            <span
+              className="inline-block text-xs sm:text-sm font-semibold tracking-[0.18em] uppercase mb-4"
+              style={{ color: BRAND }}
+            >
+              Sinalização digital reaproveitada
+            </span>
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl 2xl:text-5xl font-extrabold leading-tight">
+              A entrada da ilha já está{" "}
+              <span style={{ color: BRAND }}>ligada — no seu estoque.</span>
+            </h3>
+            <p
+              className="mt-6 text-sm sm:text-lg lg:text-xl 2xl:text-2xl leading-relaxed"
+              style={{ color: MUTED }}
+            >
+              A entrada da Via Expressa é sinalizada por uma TV de 55"
+              posicionada na vertical, usando o próprio estoque de
+              eletrodomésticos da loja — a mesma TV que já está ligada no
+              mostruário do setor de Eletro.
+            </p>
+            <div
+              className="mt-8 rounded-xl p-5 2xl:p-7 text-sm sm:text-base 2xl:text-xl font-semibold"
+              style={{ background: BRAND_SOFT, color: INK, border: `1px solid ${BRAND_LINE}` }}
+            >
+              Custo Zero de Ativação — nenhum equipamento novo comprado
+            </div>
+          </div>
+
+          {/* Mockup vertical da TV */}
+          <div data-reveal className="flex justify-center">
+            <div
+              className="relative w-full max-w-[280px] sm:max-w-[320px] rounded-3xl overflow-hidden flex flex-col"
+              style={{
+                aspectRatio: "9 / 16",
+                background: BG,
+                border: `3px solid ${BRAND_LINE}`,
+                boxShadow: `0 0 60px ${BRAND_SOFT}`,
+              }}
+            >
+              {/* topo — logo */}
+              <div className="flex flex-col items-center justify-center pt-8 pb-4 px-4">
+                <img
+                  src={carrefourLogo}
+                  alt="Via Expressa"
+                  className="w-10 h-10 sm:w-12 sm:h-12 rounded-[22%]"
+                />
+                <span
+                  className="mt-2 text-xs sm:text-sm font-extrabold tracking-tight"
+                  style={{ color: INK }}
+                >
+                  Via Expressa
+                </span>
+              </div>
+
+              {/* centro — QR gigante */}
+              <div className="flex-1 flex items-center justify-center px-8">
+                <div className="w-full max-w-[160px] sm:max-w-[190px] bg-white rounded-xl p-3">
+                  <QrCode viewBoxSize={320} />
+                </div>
+              </div>
+
+              {/* base — 3 regras */}
+              <div
+                className="px-4 pb-6 pt-4 space-y-2"
+                style={{ borderTop: `1px solid ${BRAND_LINE}` }}
+              >
+                {[
+                  "Até 20 itens",
+                  "Ensacole no corredor",
+                  "Saia em 60s",
+                ].map((r) => (
+                  <div key={r} className="flex items-center gap-2">
+                    <span
+                      className="w-1.5 h-1.5 rounded-full flex-shrink-0"
+                      style={{ background: BRAND }}
+                    />
+                    <span
+                      className="text-[11px] sm:text-xs font-semibold"
+                      style={{ color: MUTED }}
+                    >
+                      {r}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
       </Section>
 
       {/* ============ 6. ROI ============ */}
