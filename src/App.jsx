@@ -318,6 +318,32 @@ export default function ViaExpressa() {
         </div>
       </Section>
 
+      {/* ============ 1.5. MANIFESTO — FAST TRACK / FRICÇÃO ZERO ============ */}
+      <Section id="manifesto-fast-track" className="py-16 sm:py-24 lg:py-32">
+        <div
+          data-reveal
+          className="relative max-w-5xl mx-auto text-center px-4 sm:px-8"
+        >
+          <span
+            className="block text-6xl sm:text-8xl lg:text-9xl font-black leading-none select-none"
+            style={{ color: BRAND_SOFT }}
+          >
+            "
+          </span>
+          <p
+            className="-mt-8 sm:-mt-12 text-2xl sm:text-4xl lg:text-5xl 2xl:text-6xl font-extrabold leading-tight tracking-tight"
+            style={{ color: INK }}
+          >
+            Entregamos um fluxo{" "}
+            <span style={{ color: BRAND }}>Fast Track</span> — o cliente passa{" "}
+            <span style={{ color: BRAND }}>20 itens em 1 minuto</span> — porque
+            nossa tecnologia é{" "}
+            <span style={{ color: BRAND }}>Fricção Zero</span>: sem download de
+            app, sem cadastro, sem descarregar o carrinho.
+          </p>
+        </div>
+      </Section>
+
       {/* ============ 2. O DESAFIO DA FRICÇÃO ============ */}
       <Section id="fricção">
         <Eyebrow>O desafio</Eyebrow>
@@ -888,6 +914,42 @@ export default function ViaExpressa() {
               Gestão de Negócios e Comunicação Empresarial. Vivência profunda na
               gestão de todos os ecossistemas da loja: Alimentar (perecíveis e
               não perecíveis), Não Alimentar e Administrativo.
+            </p>
+          </div>
+        </div>
+      </Section>
+
+      {/* ============ 7.5. MANIFESTO — URGÊNCIA ============ */}
+      <Section
+        id="manifesto-urgencia"
+        className="py-20 sm:py-32"
+      >
+        <div
+          data-reveal
+          className="relative max-w-5xl mx-auto rounded-3xl px-6 py-14 sm:px-14 sm:py-20 2xl:px-20 2xl:py-24"
+          style={{ background: BRAND, boxShadow: `0 0 100px ${BRAND_SOFT}` }}
+        >
+          <p className="text-xl sm:text-3xl lg:text-4xl 2xl:text-5xl font-extrabold leading-tight text-white">
+            Inovação no varejo não é sobre tecnologia.{" "}
+            <span style={{ opacity: 0.85 }}>É sobre tempo e território.</span>
+          </p>
+
+          <p className="mt-8 sm:mt-10 text-base sm:text-xl lg:text-2xl 2xl:text-3xl leading-relaxed text-white opacity-95">
+            O cliente que compra a nossa picanha e o nosso vinho não tolera
+            mais esperar 15 minutos na frente de caixa. Se não dermos essa
+            via expressa pra ele, o concorrente da outra esquina vai dar. E
+            quando ele descobrir que pode resolver a compra em 1 minuto lá,
+            não volta mais aqui.
+          </p>
+
+          <div
+            className="mt-10 sm:mt-12 pt-8 sm:pt-10"
+            style={{ borderTop: "1px solid rgba(255,255,255,0.25)" }}
+          >
+            <p className="text-lg sm:text-2xl lg:text-3xl 2xl:text-4xl font-extrabold text-white leading-snug">
+              O piloto está pronto. Podemos ser os pioneiros e ditar a regra
+              do jogo — ou esperar o concorrente fazer primeiro, pra depois
+              correr atrás.
             </p>
           </div>
         </div>
