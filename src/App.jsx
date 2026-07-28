@@ -14,6 +14,7 @@ import {
   Smartphone,
   Store,
   Eye,
+  X,
 } from "lucide-react";
 
 /* ------------------------------------------------------------------
@@ -780,6 +781,137 @@ export default function ViaExpressa() {
             operador, todos os dias em que a fila continuar do jeito que
             está hoje.
           </p>
+        </div>
+      </Section>
+
+      {/* ============ 6.8. NÓS VS. O MERCADO ============ */}
+      <Section id="nos-vs-mercado">
+        <Eyebrow>Vantagem competitiva</Eyebrow>
+        <H2>
+          Por que a Via Expressa é{" "}
+          <span style={{ color: BRAND }}>o único modelo escalável?</span>
+        </H2>
+        <Lead className="mt-6 max-w-3xl">
+          A tecnologia não pode ser mais cara e complexa do que o problema
+          que ela tenta resolver.
+        </Lead>
+
+        {/* cabeçalho das colunas */}
+        <div className="mt-10 sm:mt-16 grid grid-cols-2 gap-4 sm:gap-8">
+          <div
+            data-reveal
+            className="rounded-xl px-4 py-3 sm:px-6 sm:py-4 text-center"
+            style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.10)" }}
+          >
+            <span
+              className="text-xs sm:text-base 2xl:text-xl font-bold tracking-wide uppercase"
+              style={{ color: "#9CA3AF" }}
+            >
+              O Mercado
+            </span>
+            <span
+              className="block text-[10px] sm:text-sm mt-1"
+              style={{ color: "#6B7280" }}
+            >
+              Modelos atuais
+            </span>
+          </div>
+          <div
+            data-reveal
+            className="rounded-xl px-4 py-3 sm:px-6 sm:py-4 text-center"
+            style={{ background: BRAND_SOFT, border: `1px solid ${BRAND_LINE}` }}
+          >
+            <span
+              className="text-xs sm:text-base 2xl:text-xl font-bold tracking-wide uppercase"
+              style={{ color: BRAND }}
+            >
+              A Via Expressa
+            </span>
+            <span className="block text-[10px] sm:text-sm mt-1" style={{ color: BRAND }}>
+              Nosso projeto
+            </span>
+          </div>
+        </div>
+
+        {/* linhas de comparação */}
+        <div className="mt-6 sm:mt-8 space-y-6 sm:space-y-8">
+          {[
+            {
+              n: "01",
+              t: "O Obstáculo do Software",
+              mercado:
+                "Scan & Go tradicional exige download de app pesado (150MB), criação de conta e validação de e-mail no meio do corredor. Alta taxa de abandono.",
+              nos:
+                "100% Web, Fricção Zero. O cliente aponta a câmera pro QR Code e o sistema abre em 2 segundos. Sem senhas, sem instalação.",
+            },
+            {
+              n: "02",
+              t: "O Custo de Infraestrutura (CAPEX)",
+              mercado:
+                "Self-checkout e carrinho inteligente exigem totens caríssimos, manutenção constante de hardware e até obras civis na frente de caixa.",
+              nos:
+                "Custo Zero. Usamos o celular do cliente como hardware e o PDV atual da loja pra consolidar a venda. Nenhuma esteira é arrancada.",
+            },
+            {
+              n: "03",
+              t: "O Gargalo do Ensacolamento",
+              mercado:
+                "O cliente continua perdendo tempo no fim da compra, descarregando e ensacolando os itens na frente do equipamento.",
+              nos:
+                "O ensacolamento é feito durante a caminhada no corredor. O fluxo no caixa vira apenas uma pista de auditoria visual rápida.",
+            },
+          ].map((row) => (
+            <div key={row.n} data-reveal>
+              <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+                <span
+                  className="text-[10px] sm:text-sm font-extrabold px-2 py-0.5 rounded"
+                  style={{ background: BRAND_SOFT, color: BRAND }}
+                >
+                  {row.n}
+                </span>
+                <h3 className="text-sm sm:text-xl 2xl:text-2xl font-bold">
+                  {row.t}
+                </h3>
+              </div>
+              <div className="grid grid-cols-2 gap-4 sm:gap-8">
+                <div
+                  className="rounded-xl p-4 sm:p-6 2xl:p-8 flex gap-3 sm:gap-4"
+                  style={{
+                    background: "rgba(255,255,255,0.03)",
+                    border: "1px solid rgba(255,255,255,0.08)",
+                  }}
+                >
+                  <X
+                    size={20}
+                    className="flex-shrink-0 mt-0.5"
+                    style={{ color: "#6B7280" }}
+                  />
+                  <p
+                    className="text-xs sm:text-base 2xl:text-lg leading-relaxed"
+                    style={{ color: "#9CA3AF" }}
+                  >
+                    {row.mercado}
+                  </p>
+                </div>
+                <div
+                  className="rounded-xl p-4 sm:p-6 2xl:p-8 flex gap-3 sm:gap-4"
+                  style={{ background: BRAND_SOFT, border: `1px solid ${BRAND_LINE}` }}
+                >
+                  <CheckCircle2
+                    size={20}
+                    className="flex-shrink-0 mt-0.5"
+                    style={{ color: BRAND }}
+                  />
+                  <p
+                    className="text-xs sm:text-base 2xl:text-lg leading-relaxed"
+                    style={{ color: INK }}
+                  >
+                    {row.nos}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </Section>
 
