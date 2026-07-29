@@ -720,90 +720,6 @@ export default function ViaExpressa() {
         </div>
       </Section>
 
-      {/* ============ 6. ROI ============ */}
-      <Section id="roi">
-        <div className="text-center flex flex-col items-center">
-          <Eyebrow>Retorno</Eyebrow>
-          <div
-            data-reveal
-            className="text-5xl sm:text-8xl lg:text-9xl 2xl:text-[12rem] font-extrabold leading-none tracking-tight"
-            style={{ color: BRAND }}
-          >
-            R$ 8.000
-          </div>
-          <div
-            data-reveal
-            className="mt-3 text-xl sm:text-3xl 2xl:text-5xl font-bold"
-            style={{ color: INK }}
-          >
-            / mês
-          </div>
-          <p
-            data-reveal
-            className="mt-6 max-w-3xl 2xl:max-w-5xl text-base sm:text-2xl 2xl:text-3xl"
-            style={{ color: MUTED }}
-          >
-            Redução de custo fixo por ilha implementada.
-          </p>
-
-          <div className="mt-12 sm:mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-8 w-full text-left">
-            {[
-              {
-                icon: <Users size={32} />,
-                t: "1 operador absorve o TMA de 3 caixas",
-                d: "A produtividade sobe sem contratar e sem abrir novos pontos de venda.",
-              },
-              {
-                icon: <TrendingDown size={32} />,
-                t: "Eliminamos escalas extras",
-                d: "O pico de fluxo deixa de exigir hora extra e reforço de escala no fim de semana.",
-              },
-              {
-                icon: <Store size={32} />,
-                t: "Paramos de canibalizar a loja",
-                d: "Gôndola, açougue e padaria mantêm sua mão de obra onde ela gera margem.",
-                setores: ["Mercearia", "FLV", "Açougue", "Padaria", "Não Alimentar"],
-              },
-              {
-                icon: <Eye size={32} />,
-                t: "Menos devolução no caixa, menos perda",
-                d: "O cliente vê o subtotal em tempo real enquanto compra. Se o valor passar do orçamento, ele ajusta o carrinho ali mesmo, no corredor — não na fila. Chega ao caixa só com o que vai levar, reduzindo devolução e a perda que ela gera.",
-              },
-            ].map((p) => (
-              <Card key={p.t}>
-                <div style={{ color: BRAND }}>{p.icon}</div>
-                <h3 className="mt-5 text-lg sm:text-xl 2xl:text-2xl font-bold leading-snug">
-                  {p.t}
-                </h3>
-                <p
-                  className="mt-3 text-sm sm:text-base 2xl:text-xl leading-relaxed"
-                  style={{ color: MUTED }}
-                >
-                  {p.d}
-                </p>
-                {p.setores && (
-                  <div className="mt-5 flex flex-wrap gap-2">
-                    {p.setores.map((s) => (
-                      <span
-                        key={s}
-                        className="text-xs sm:text-sm 2xl:text-base font-semibold px-3 py-1.5 rounded-full"
-                        style={{
-                          color: BRAND,
-                          background: BRAND_SOFT,
-                          border: `1px solid ${BRAND_LINE}`,
-                        }}
-                      >
-                        {s}
-                      </span>
-                    ))}
-                  </div>
-                )}
-              </Card>
-            ))}
-          </div>
-        </div>
-      </Section>
-
       {/* ============ 6.7. CAPACIDADE DE ATENDIMENTO / CUSTO DE NÃO AGIR ============ */}
       <Section id="capacidade">
         <Eyebrow>O que está em jogo</Eyebrow>
@@ -862,19 +778,6 @@ export default function ViaExpressa() {
               gôndola, no caixa só resta auditoria e pagamento.
             </p>
           </div>
-        </div>
-
-        <div
-          data-reveal
-          className="mt-8 sm:mt-10 rounded-2xl p-6 sm:p-8 2xl:p-10"
-          style={{ background: BRAND_SOFT, border: `1px solid ${BRAND_LINE}` }}
-        >
-          <p className="text-base sm:text-xl 2xl:text-2xl font-bold leading-snug">
-            Cada mês sem o piloto rodando é R$ 8.000 não economizados por
-            ilha — e até 680 atendimentos por dia deixados na mesa, por
-            operador, todos os dias em que a fila continuar do jeito que
-            está hoje.
-          </p>
         </div>
       </Section>
 
