@@ -780,35 +780,57 @@ export default function ViaExpressa() {
           </div>
         </div>
 
-        {/* Box financeiro */}
-        <div
-          data-reveal
-          className="mt-6 sm:mt-8 rounded-2xl p-6 sm:p-8 2xl:p-10 flex flex-col lg:flex-row lg:items-center gap-6 lg:gap-10"
-          style={{ background: "#1a2332", border: `1px solid ${BRAND}` }}
-        >
-          <div className="flex-1">
+        {/* Bloco financeiro — 2 cards separados */}
+        <div className="mt-6 sm:mt-8 grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+          <Card data-reveal>
             <span
               className="text-xs sm:text-sm font-semibold uppercase tracking-wide"
               style={{ color: MUTED }}
             >
-              Capacidade máxima de escoamento financeiro:
+              Capacidade máxima de escoamento financeiro
             </span>
-            <p className="mt-2 text-sm sm:text-lg lg:text-xl 2xl:text-2xl font-bold leading-snug">
-              Tradicional: R$ 66.300/dia{" "}
-              <span style={{ color: MUTED, fontWeight: 400 }}>|</span> Via
-              Expressa: R$ 198.900/dia
-            </p>
-          </div>
+            <div className="mt-5 space-y-4">
+              <div className="flex items-baseline justify-between gap-3">
+                <span
+                  className="text-xs sm:text-sm font-semibold"
+                  style={{ color: MUTED }}
+                >
+                  Tradicional
+                </span>
+                <span className="text-lg sm:text-2xl 2xl:text-3xl font-extrabold">
+                  R$ 66.300<span style={{ color: MUTED, fontWeight: 400 }}>/dia</span>
+                </span>
+              </div>
+              <div
+                style={{ height: 1, background: "rgba(255,255,255,0.10)" }}
+              />
+              <div className="flex items-baseline justify-between gap-3">
+                <span
+                  className="text-xs sm:text-sm font-semibold"
+                  style={{ color: BRAND }}
+                >
+                  Via Expressa
+                </span>
+                <span
+                  className="text-lg sm:text-2xl 2xl:text-3xl font-extrabold"
+                  style={{ color: BRAND }}
+                >
+                  R$ 198.900<span style={{ color: MUTED, fontWeight: 400 }}>/dia</span>
+                </span>
+              </div>
+            </div>
+          </Card>
+
           <div
-            className="border-t lg:border-t-0 lg:border-l pt-6 lg:pt-0 lg:pl-10"
-            style={{ borderColor: "rgba(255,255,255,0.12)" }}
+            data-reveal
+            className="rounded-2xl p-6 sm:p-8 2xl:p-10 flex flex-col justify-center"
+            style={{ background: BRAND, boxShadow: `0 0 50px ${BRAND_SOFT}` }}
           >
-            <p
-              className="text-lg sm:text-2xl lg:text-3xl 2xl:text-4xl font-extrabold leading-snug"
-              style={{ color: BRAND }}
-            >
-              Até R$ 132.600 destravados em capacidade de faturamento por
-              operador, por dia.
+            <span className="text-4xl sm:text-6xl 2xl:text-7xl font-extrabold leading-none text-white">
+              R$ 132.600
+            </span>
+            <p className="mt-4 text-sm sm:text-lg 2xl:text-xl font-semibold leading-snug text-white opacity-95">
+              destravados em capacidade de faturamento por operador, por dia.
             </p>
           </div>
         </div>
