@@ -145,6 +145,8 @@ import telaCamera from "./assets/app-screens/passo4-camera.png";
 import telaCarrinho from "./assets/app-screens/passo5-carrinho.png";
 import telaCodigoOperador from "./assets/app-screens/passo6-codigo-operador.png";
 import telaCupomFiscal from "./assets/app-screens/passo7-cupom-fiscal.png";
+import imgAbandono from "./assets/dor-solucao/abandono-carrinho.jpg";
+import imgFila from "./assets/dor-solucao/fila-insatisfacao.jpg";
 
 function CarrefourMark({ size = 56 }) {
   return (
@@ -319,6 +321,79 @@ export default function ViaExpressa() {
           >
             <ArrowDown size={18} /> role para continuar
           </div>
+        </div>
+      </Section>
+
+      {/* ============ 1.4. A REALIDADE DO CHÃO DE LOJA ============ */}
+      <Section id="realidade-chao-loja">
+        <Eyebrow>O ponto de partida</Eyebrow>
+        <H2>O Custo Oculto do Modelo Tradicional</H2>
+        <Lead className="mt-6 max-w-3xl">
+          O que acontece no salão de vendas enquanto limitamos nossa
+          capacidade de escoamento.
+        </Lead>
+
+        <div className="mt-10 sm:mt-16 grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-8">
+          {[
+            {
+              img: imgAbandono,
+              t: "O Abandono (Venda Perdida)",
+              d: "O carrinho deixado no corredor. A frustração com a fila se transforma em perda direta de receita e quebra de produtos perecíveis.",
+              accent: false,
+            },
+            {
+              img: imgFila,
+              t: "A Insatisfação (Atrito)",
+              d: "O cliente de alto valor sendo punido pela lentidão logística. A fila destrói a experiência de compra e impede o retorno.",
+              accent: false,
+            },
+            {
+              img: telaCarrinho,
+              t: "Fricção Zero (Via Expressa)",
+              d: "O novo padrão: até 4 clientes atendidos simultaneamente, com celular e sacola na mão, atravessando o caixa em 60 segundos.",
+              accent: true,
+            },
+          ].map((c) => (
+            <div key={c.t} data-reveal>
+              <div
+                className="relative w-full rounded-2xl overflow-hidden"
+                style={{
+                  aspectRatio: "4 / 3",
+                  border: c.accent
+                    ? `2px solid ${BRAND}`
+                    : "1px solid rgba(255,255,255,0.10)",
+                  boxShadow: c.accent
+                    ? `0 0 50px ${BRAND_SOFT}`
+                    : "none",
+                }}
+              >
+                <img
+                  src={c.img}
+                  alt={c.t}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background:
+                      "linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.75) 100%)",
+                  }}
+                />
+              </div>
+              <h3
+                className="mt-5 text-lg sm:text-xl 2xl:text-2xl font-bold leading-snug"
+                style={{ color: c.accent ? BRAND : INK }}
+              >
+                {c.t}
+              </h3>
+              <p
+                className="mt-2 text-sm sm:text-base 2xl:text-lg leading-relaxed"
+                style={{ color: MUTED }}
+              >
+                {c.d}
+              </p>
+            </div>
+          ))}
         </div>
       </Section>
 
