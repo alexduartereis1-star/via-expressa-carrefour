@@ -779,6 +779,39 @@ export default function ViaExpressa() {
             </p>
           </div>
         </div>
+
+        {/* Box financeiro */}
+        <div
+          data-reveal
+          className="mt-6 sm:mt-8 rounded-2xl p-6 sm:p-8 2xl:p-10 flex flex-col lg:flex-row lg:items-center gap-6 lg:gap-10"
+          style={{ background: "#1a2332", border: `1px solid ${BRAND}` }}
+        >
+          <div className="flex-1">
+            <span
+              className="text-xs sm:text-sm font-semibold uppercase tracking-wide"
+              style={{ color: MUTED }}
+            >
+              Capacidade máxima de escoamento financeiro:
+            </span>
+            <p className="mt-2 text-sm sm:text-lg lg:text-xl 2xl:text-2xl font-bold leading-snug">
+              Tradicional: R$ 66.300/dia{" "}
+              <span style={{ color: MUTED, fontWeight: 400 }}>|</span> Via
+              Expressa: R$ 198.900/dia
+            </p>
+          </div>
+          <div
+            className="border-t lg:border-t-0 lg:border-l pt-6 lg:pt-0 lg:pl-10"
+            style={{ borderColor: "rgba(255,255,255,0.12)" }}
+          >
+            <p
+              className="text-lg sm:text-2xl lg:text-3xl 2xl:text-4xl font-extrabold leading-snug"
+              style={{ color: BRAND }}
+            >
+              Até R$ 132.600 destravados em capacidade de faturamento por
+              operador, por dia.
+            </p>
+          </div>
+        </div>
       </Section>
 
       {/* ============ 6.8. NÓS VS. O MERCADO ============ */}
