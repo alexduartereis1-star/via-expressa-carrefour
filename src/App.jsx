@@ -18,6 +18,8 @@ import {
   Shield,
   UserX,
   Lock,
+  ShoppingCart,
+  Timer,
 } from "lucide-react";
 
 /* ------------------------------------------------------------------
@@ -736,7 +738,7 @@ export default function ViaExpressa() {
           {/* Mockup vertical da TV */}
           <div data-reveal className="flex justify-center">
             <div
-              className="relative w-full max-w-[280px] sm:max-w-[320px] rounded-3xl overflow-hidden flex flex-col"
+              className="relative w-full max-w-[340px] sm:max-w-[400px] rounded-3xl overflow-hidden flex flex-col"
               style={{
                 aspectRatio: "9 / 16",
                 background: BG,
@@ -744,48 +746,59 @@ export default function ViaExpressa() {
                 boxShadow: `0 0 60px ${BRAND_SOFT}`,
               }}
             >
-              {/* topo — logo */}
-              <div className="flex flex-col items-center justify-center pt-8 pb-4 px-4">
+              {/* topo — logo + selo Fricção Zero */}
+              <div className="flex flex-col items-center justify-center pt-6 sm:pt-8 pb-3 px-4">
                 <img
                   src={carrefourLogo}
                   alt="Via Expressa"
-                  className="w-10 h-10 sm:w-12 sm:h-12 rounded-[22%]"
+                  className="w-11 h-11 sm:w-14 sm:h-14 rounded-[22%]"
                 />
                 <span
-                  className="mt-2 text-xs sm:text-sm font-extrabold tracking-tight"
+                  className="mt-2 text-sm sm:text-lg font-extrabold tracking-tight"
                   style={{ color: INK }}
                 >
                   Via Expressa
                 </span>
+                <span
+                  className="mt-2 px-3 py-1 rounded-full text-[10px] sm:text-xs font-extrabold tracking-wide uppercase text-white"
+                  style={{ background: BRAND }}
+                >
+                  Não precisa baixar app
+                </span>
               </div>
 
+              {/* CTA imediato */}
+              <p
+                className="text-center text-base sm:text-xl font-extrabold px-4 mt-1"
+                style={{ color: "#FFFFFF" }}
+              >
+                Aponte a câmera do celular
+              </p>
+
               {/* centro — QR gigante */}
-              <div className="flex-1 flex items-center justify-center px-8">
-                <div className="w-full max-w-[160px] sm:max-w-[190px] bg-white rounded-xl p-3">
+              <div className="flex-1 flex items-center justify-center px-8 py-3">
+                <div className="w-full max-w-[180px] sm:max-w-[210px] bg-white rounded-xl p-3">
                   <QrCode viewBoxSize={320} />
                 </div>
               </div>
 
-              {/* base — 3 regras */}
+              {/* base — 3 regras com ícones grandes */}
               <div
-                className="px-4 pb-6 pt-4 space-y-2"
-                style={{ borderTop: `1px solid ${BRAND_LINE}` }}
+                className="mx-3 mb-3 sm:mx-4 sm:mb-4 rounded-2xl px-4 py-4 sm:px-5 sm:py-5 space-y-3 sm:space-y-4"
+                style={{ background: "#1a2332", border: `1px solid ${BRAND_LINE}` }}
               >
                 {[
-                  "Até 20 itens",
-                  "Ensacole no corredor",
-                  "Saia em 60s",
+                  { icon: <ShoppingCart size={28} />, t: "Até 20 itens" },
+                  { icon: <ShoppingBag size={28} />, t: "Ensacole no corredor" },
+                  { icon: <Timer size={28} />, t: "Saia em 60s" },
                 ].map((r) => (
-                  <div key={r} className="flex items-center gap-2">
+                  <div key={r.t} className="flex items-center gap-3">
+                    <span style={{ color: BRAND, flexShrink: 0 }}>{r.icon}</span>
                     <span
-                      className="w-1.5 h-1.5 rounded-full flex-shrink-0"
-                      style={{ background: BRAND }}
-                    />
-                    <span
-                      className="text-[11px] sm:text-xs font-semibold"
-                      style={{ color: MUTED }}
+                      className="text-sm sm:text-lg lg:text-xl font-extrabold leading-tight"
+                      style={{ color: "#FFFFFF" }}
                     >
-                      {r}
+                      {r.t}
                     </span>
                   </div>
                 ))}
