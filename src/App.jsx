@@ -1178,8 +1178,13 @@ export default function ViaExpressa() {
 
       {/* ============ 7. PERFIL EXECUTIVO ============ */}
       <Section id="quem">
-        <Eyebrow>Quem assina o projeto</Eyebrow>
-        <div className="mt-6 grid grid-cols-1 lg:grid-cols-[auto,1fr] gap-8 sm:gap-12 lg:gap-16 items-center">
+        <Eyebrow>O idealizador</Eyebrow>
+        <H2>O Idealizador e a Origem do Projeto</H2>
+        <Lead className="mt-6 max-w-3xl">
+          A tecnologia que nasceu da indignação no chão de loja.
+        </Lead>
+
+        <div className="mt-10 sm:mt-12 grid grid-cols-1 lg:grid-cols-[auto,1fr] gap-8 sm:gap-12 lg:gap-16 items-center">
           {/* foto */}
           <div data-reveal className="flex justify-center lg:justify-start">
             <div
@@ -1232,6 +1237,50 @@ export default function ViaExpressa() {
               Gestão de Negócios e Comunicação Empresarial. Vivência profunda na
               gestão de todos os ecossistemas da loja: Alimentar (perecíveis e
               não perecíveis), Não Alimentar e Administrativo.
+            </p>
+          </div>
+        </div>
+
+        {/* Manifesto do fundador */}
+        <div
+          data-reveal
+          className="mt-12 sm:mt-16 rounded-2xl p-6 sm:p-10 lg:p-14 2xl:p-16"
+          style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)" }}
+        >
+          <span
+            className="block text-6xl sm:text-8xl lg:text-9xl font-black leading-none select-none"
+            style={{ color: BRAND_SOFT }}
+          >
+            "
+          </span>
+          <div className="-mt-6 sm:-mt-10 space-y-5 sm:space-y-7 max-w-4xl 2xl:max-w-6xl">
+            <p className="text-base sm:text-xl lg:text-2xl 2xl:text-3xl leading-relaxed" style={{ color: INK }}>
+              Depois de mais de 22 anos respirando a operação de varejo e
+              liderando equipes em gigantes como Walmart, Cencosud e
+              Carrefour, um cenário sempre me incomodou profundamente: a
+              punição do cliente rápido.
+            </p>
+            <p className="text-base sm:text-xl lg:text-2xl 2xl:text-3xl leading-relaxed" style={{ color: INK }}>
+              Eu estava cansado de caminhar pelos hipermercados e ver um
+              cliente com apenas 10, 15 ou 20 itens na mão sendo obrigado a
+              enfrentar uma fila com 6 ou 7 carrinhos lotados à sua frente.
+              Ver aquele cliente perder 20, 30 minutos do seu dia parado,
+              frustrado, olhando para o relógio, foi me gerando uma urgência
+              enorme de criar algo diferente.
+            </p>
+            <p className="text-base sm:text-xl lg:text-2xl 2xl:text-3xl leading-relaxed" style={{ color: INK }}>
+              O Via Expressa não nasceu em um escritório de tecnologia. Ele
+              veio na minha mente como uma resposta direta a essa dor diária
+              do salão de vendas. Ele foi criado para devolver o tempo e a
+              dignidade a esse cliente.
+            </p>
+            <p
+              className="text-lg sm:text-2xl lg:text-3xl 2xl:text-4xl font-extrabold leading-snug"
+              style={{ color: BRAND }}
+            >
+              É o fim da fila tradicional e o início do respeito absoluto
+              pela jornada de quem quer apenas comprar, pagar e viver a sua
+              vida.
             </p>
           </div>
         </div>
