@@ -1184,11 +1184,18 @@ export default function ViaExpressa() {
           A tecnologia que nasceu da indignação no chão de loja.
         </Lead>
 
-        <div className="mt-10 sm:mt-12 grid grid-cols-1 lg:grid-cols-[auto,1fr] gap-8 sm:gap-12 lg:gap-16 items-center">
+        <div className="mt-10 sm:mt-12 flex flex-col items-center text-center">
           {/* foto */}
-          <div data-reveal className="flex justify-center lg:justify-start">
+          <div data-reveal className="relative">
             <div
-              className="rounded-full flex items-center justify-center w-40 h-40 sm:w-56 sm:h-56 2xl:w-80 2xl:h-80"
+              className="absolute inset-0 rounded-full animate-ping"
+              style={{
+                background: BRAND_SOFT,
+                animationDuration: "3s",
+              }}
+            />
+            <div
+              className="relative rounded-full flex items-center justify-center w-40 h-40 sm:w-56 sm:h-56 2xl:w-80 2xl:h-80"
               style={{
                 border: `3px solid ${BRAND}`,
                 background: "rgba(255,255,255,0.04)",
@@ -1206,39 +1213,18 @@ export default function ViaExpressa() {
             </div>
           </div>
 
-          {/* bio */}
-          <div>
-            <h2
-              data-reveal
-              className="text-3xl sm:text-5xl 2xl:text-7xl font-extrabold tracking-tight"
-            >
-              Alex Bruno
-            </h2>
-            <div
-              data-reveal
-              className="mt-4 h-1 w-20 sm:w-28 rounded-full"
-              style={{ background: BRAND }}
-            />
-            <p
-              data-reveal
-              className="mt-7 text-sm sm:text-lg lg:text-xl 2xl:text-3xl leading-relaxed max-w-3xl 2xl:max-w-5xl"
-              style={{ color: MUTED }}
-            >
-              42 anos. Mais de 22 anos de trincheira no varejo, com passagens por
-              gigantes como{" "}
-              <span style={{ color: INK }} className="font-semibold">
-                Walmart, Cencosud
-              </span>{" "}
-              e, atualmente,{" "}
-              <span style={{ color: INK }} className="font-semibold">
-                Carrefour
-              </span>
-              . Formação em Administração e Logística, com pós-graduação em
-              Gestão de Negócios e Comunicação Empresarial. Vivência profunda na
-              gestão de todos os ecossistemas da loja: Alimentar (perecíveis e
-              não perecíveis), Não Alimentar e Administrativo.
-            </p>
-          </div>
+          {/* nome */}
+          <h2
+            data-reveal
+            className="mt-8 sm:mt-10 text-5xl sm:text-7xl lg:text-8xl 2xl:text-9xl font-extrabold tracking-tight"
+          >
+            Alex Bruno
+          </h2>
+          <div
+            data-reveal
+            className="mt-5 h-1.5 w-24 sm:w-32 rounded-full"
+            style={{ background: BRAND }}
+          />
         </div>
 
         {/* Manifesto do fundador */}
