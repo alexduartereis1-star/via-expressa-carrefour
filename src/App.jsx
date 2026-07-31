@@ -124,12 +124,16 @@ function Lead({ children, className = "" }) {
   );
 }
 
-function Card({ children, className = "", delay }) {
+function Card({ children, className = "", delay, padded = true }) {
   return (
     <div
       data-reveal
       data-reveal-delay={delay}
-      className={"rounded-2xl p-6 sm:p-8 2xl:p-10 h-full " + className}
+      className={
+        "rounded-2xl h-full " +
+        (padded ? "p-6 sm:p-8 2xl:p-10 " : "") +
+        className
+      }
       style={{
         background: "rgba(255,255,255,0.03)",
         border: "1px solid rgba(255,255,255,0.08)",
@@ -151,6 +155,9 @@ import telaCodigoOperador from "./assets/app-screens/passo6-codigo-operador.png"
 import telaCupomFiscal from "./assets/app-screens/passo7-cupom-fiscal.png";
 import imgAbandono from "./assets/dor-solucao/abandono-carrinho.jpg";
 import imgFila from "./assets/dor-solucao/fila-insatisfacao.jpg";
+import imgPilar1FilaCaixa from "./assets/reacao-em-cadeia/pilar1-fila-caixa.jpg";
+import imgPilar2Constrangimento from "./assets/reacao-em-cadeia/pilar2-constrangimento.jpg";
+import imgPilar3CarrinhoCheio from "./assets/reacao-em-cadeia/pilar3-carrinho-cheio.jpg";
 
 function CarrefourMark({ size = 56 }) {
   return (
@@ -998,16 +1005,19 @@ export default function ViaExpressa() {
           {[
             {
               icon: Boxes,
+              img: imgPilar1FilaCaixa,
               t: "O Fim da Polivalência Forçada",
               d: 'Quando o caixa trava, a loja sofre. Com a Via Expressa absorvendo o fluxo, eliminamos a necessidade de arrancar repositores e promotores do salão de vendas para "abrir caixa". A equipe de abastecimento e precificação permanece em seus postos, garantindo gôndolas cheias, preços corretos e redução de ruptura.',
             },
             {
               icon: Smartphone,
+              img: imgPilar2Constrangimento,
               t: "Visibilidade e Fim do Constrangimento",
               d: "No modelo tradicional, o cliente só descobre o valor final da compra na frente do operador. Com a Via Expressa, ele acompanha o subtotal em tempo real na tela do seu próprio celular. Isso elimina o constrangimento de ter que deixar produtos para trás por falta de limite no cartão ou dinheiro, melhorando a experiência de compra.",
             },
             {
               icon: Shield,
+              img: imgPilar3CarrinhoCheio,
               t: "Prevenção de Perdas e Quebras",
               d: "Atacamos duas das maiores causas de quebra de perecíveis e retrabalho: o abandono de carrinhos no meio do corredor por clientes que desistem de enfrentar a fila, e as devoluções de última hora no caixa, seja por desistência ou por falta de saldo. Sem fila e com o valor controlado na palma da mão, o produto vai direto da gôndola para a casa do cliente.",
             },
@@ -1015,26 +1025,47 @@ export default function ViaExpressa() {
             <Card
               key={p.t}
               delay={i * 120}
-              className="hover:-translate-y-1 hover:border-white/20 transition-transform duration-500"
+              padded={false}
+              className="overflow-hidden hover:-translate-y-1 hover:border-white/20 transition-transform duration-500 group"
             >
-              <div
-                className="w-14 h-14 rounded-xl flex items-center justify-center mb-6"
-                style={{ background: BRAND_SOFT, border: `1px solid ${BRAND_LINE}` }}
-              >
-                <p.icon size={26} style={{ color: BRAND }} />
+              {/* imagem no topo — zoom de entrada + zoom contínuo no hover do card */}
+              <div className="relative w-full h-40 sm:h-48 overflow-hidden">
+                <img
+                  src={p.img}
+                  alt={p.t}
+                  className="absolute inset-0 w-full h-full object-cover scale-110 group-hover:scale-125 transition-transform duration-[1200ms] ease-out"
+                />
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background: `linear-gradient(180deg, rgba(17,24,39,0.15) 0%, ${BG} 92%)`,
+                  }}
+                />
+                <div
+                  className="absolute bottom-3 left-6 w-14 h-14 rounded-xl flex items-center justify-center transition-transform duration-500 group-hover:-translate-y-1 group-hover:scale-105"
+                  style={{
+                    background: BRAND,
+                    boxShadow: `0 10px 30px -6px rgba(30,82,168,0.7)`,
+                  }}
+                >
+                  <p.icon size={26} style={{ color: "#FFFFFF" }} />
+                </div>
               </div>
-              <h3
-                className="text-lg sm:text-xl 2xl:text-2xl font-bold"
-                style={{ color: INK }}
-              >
-                {p.t}
-              </h3>
-              <p
-                className="mt-3 text-sm sm:text-base 2xl:text-lg leading-relaxed"
-                style={{ color: MUTED }}
-              >
-                {p.d}
-              </p>
+
+              <div className="p-6 sm:p-8 2xl:p-10 pt-8">
+                <h3
+                  className="text-lg sm:text-xl 2xl:text-2xl font-bold"
+                  style={{ color: INK }}
+                >
+                  {p.t}
+                </h3>
+                <p
+                  className="mt-3 text-sm sm:text-base 2xl:text-lg leading-relaxed"
+                  style={{ color: MUTED }}
+                >
+                  {p.d}
+                </p>
+              </div>
             </Card>
           ))}
         </div>
