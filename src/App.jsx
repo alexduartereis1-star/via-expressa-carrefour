@@ -59,9 +59,10 @@ function useReveal() {
       { threshold: 0.15 }
     );
     els.forEach((el) => {
+      const delay = el.dataset.revealDelay ? `${el.dataset.revealDelay}ms` : "0ms";
       el.style.opacity = "0";
       el.style.transform = "translateY(24px)";
-      el.style.transition = "opacity .7s ease, transform .7s ease";
+      el.style.transition = `opacity .7s ease ${delay}, transform .7s ease ${delay}`;
       io.observe(el);
     });
     return () => io.disconnect();
@@ -123,10 +124,11 @@ function Lead({ children, className = "" }) {
   );
 }
 
-function Card({ children, className = "" }) {
+function Card({ children, className = "", delay }) {
   return (
     <div
       data-reveal
+      data-reveal-delay={delay}
       className={"rounded-2xl p-6 sm:p-8 2xl:p-10 h-full " + className}
       style={{
         background: "rgba(255,255,255,0.03)",
@@ -245,6 +247,7 @@ function QrCode({ viewBoxSize = 320 }) {
 export default function ViaExpressa() {
   useReveal();
   const [pulse, setPulse] = useState(false);
+  const [hoveredScreen, setHoveredScreen] = useState(null);
   useEffect(() => {
     const t = setInterval(() => setPulse((p) => !p), 1200);
     return () => clearInterval(t);
@@ -632,40 +635,69 @@ export default function ViaExpressa() {
               t: "Cupom fiscal emitido",
               d: "Testado em loja real — a compra fecha certinho, com nota fiscal.",
             },
-          ].map((s) => (
-            <div key={s.n} data-reveal className="flex flex-col items-center">
+          ].map((s, idx) => {
+            const isHovered = hoveredScreen === idx;
+            const dimmed = hoveredScreen !== null && hoveredScreen !== idx;
+            return (
               <div
-                className="relative w-full rounded-2xl overflow-hidden flex items-center justify-center"
-                style={{
-                  border: `1px solid ${BRAND_LINE}`,
-                  boxShadow: `0 0 40px ${BRAND_SOFT}`,
-                  aspectRatio: "9 / 16",
-                  background: "#0B1220",
-                }}
+                key={s.n}
+                data-reveal
+                data-reveal-delay={idx * 90}
+                className="flex flex-col items-center"
+                onMouseEnter={() => setHoveredScreen(idx)}
+                onMouseLeave={() => setHoveredScreen(null)}
               >
-                <img
-                  src={s.img}
-                  alt={s.t}
-                  className="w-full h-full object-contain"
-                />
-                <span
-                  className="absolute top-2 left-2 sm:top-3 sm:left-3 flex items-center justify-center w-7 h-7 sm:w-9 sm:h-9 rounded-full text-xs sm:text-sm font-extrabold"
-                  style={{ background: BRAND, color: "#FFFFFF" }}
+                <div
+                  className="relative w-full rounded-2xl overflow-hidden flex items-center justify-center"
+                  style={{
+                    border: `1px solid ${BRAND_LINE}`,
+                    aspectRatio: "9 / 16",
+                    background: "#0B1220",
+                    transition:
+                      "transform 500ms cubic-bezier(0.16,1,0.3,1), box-shadow 500ms ease-out, opacity 500ms ease-out",
+                    transform: isHovered ? "scale(1.1)" : "scale(1)",
+                    boxShadow: isHovered
+                      ? `0 25px 45px -10px rgba(30,82,168,0.6), 0 0 70px ${BRAND_SOFT}`
+                      : `0 0 40px ${BRAND_SOFT}`,
+                    opacity: dimmed ? 0.55 : 1,
+                  }}
                 >
-                  {s.n}
-                </span>
+                  <img
+                    src={s.img}
+                    alt={s.t}
+                    className="w-full h-full object-contain"
+                  />
+                  <span
+                    className="absolute top-2 left-2 sm:top-3 sm:left-3 flex items-center justify-center w-7 h-7 sm:w-9 sm:h-9 rounded-full text-xs sm:text-sm font-extrabold"
+                    style={{
+                      background: BRAND,
+                      color: "#FFFFFF",
+                      transition: "transform 500ms ease-out",
+                      transform: isHovered ? "scale(1.15)" : "scale(1)",
+                    }}
+                  >
+                    {s.n}
+                  </span>
+                </div>
+                <h3
+                  className="mt-4 text-sm sm:text-lg 2xl:text-xl font-bold text-center"
+                  style={{ transition: "opacity 500ms ease-out", opacity: dimmed ? 0.6 : 1 }}
+                >
+                  {s.t}
+                </h3>
+                <p
+                  className="mt-1.5 text-xs sm:text-sm 2xl:text-base text-center leading-snug"
+                  style={{
+                    color: MUTED,
+                    transition: "opacity 500ms ease-out",
+                    opacity: dimmed ? 0.6 : 1,
+                  }}
+                >
+                  {s.d}
+                </p>
               </div>
-              <h3 className="mt-4 text-sm sm:text-lg 2xl:text-xl font-bold text-center">
-                {s.t}
-              </h3>
-              <p
-                className="mt-1.5 text-xs sm:text-sm 2xl:text-base text-center leading-snug"
-                style={{ color: MUTED }}
-              >
-                {s.d}
-              </p>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </Section>
 
@@ -921,6 +953,90 @@ export default function ViaExpressa() {
               destravados em capacidade de faturamento por operador, por dia.
             </p>
           </div>
+        </div>
+      </Section>
+
+      {/* ============ 6.75. A REAÇÃO EM CADEIA NO SALÃO DE VENDAS ============ */}
+      <Section id="reacao-em-cadeia">
+        <Eyebrow>Além da fila</Eyebrow>
+        <H2>
+          Além do Caixa: <span style={{ color: BRAND }}>O Impacto na Loja Inteira</span>
+        </H2>
+        <Lead className="mt-6 max-w-3xl">
+          Como o escoamento rápido protege o abastecimento, zera o
+          constrangimento e estanca as perdas.
+        </Lead>
+
+        {/* trilho de conexão — representa a reação em cadeia entre os 3 pilares */}
+        <div
+          data-reveal
+          className="hidden lg:flex items-center justify-center gap-3 mt-14 mb-2 px-20"
+        >
+          <span
+            className="flex-1 h-px"
+            style={{ background: `linear-gradient(90deg, transparent, ${BRAND}, transparent)` }}
+          />
+          {[0, 1, 2].map((i) => (
+            <span key={i} className="relative flex h-2.5 w-2.5">
+              <span
+                className="absolute inline-flex h-full w-full rounded-full opacity-75 animate-ping"
+                style={{ background: BRAND, animationDelay: `${i * 0.4}s`, animationDuration: "2s" }}
+              />
+              <span
+                className="relative inline-flex rounded-full h-2.5 w-2.5"
+                style={{ background: BRAND }}
+              />
+            </span>
+          ))}
+          <span
+            className="flex-1 h-px"
+            style={{ background: `linear-gradient(90deg, transparent, ${BRAND}, transparent)` }}
+          />
+        </div>
+
+        <div className="mt-6 sm:mt-8 grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
+          {[
+            {
+              icon: Boxes,
+              t: "O Fim da Polivalência Forçada",
+              d: 'Quando o caixa trava, a loja sofre. Com a Via Expressa absorvendo o fluxo, eliminamos a necessidade de arrancar repositores e promotores do salão de vendas para "abrir caixa". A equipe de abastecimento e precificação permanece em seus postos, garantindo gôndolas cheias, preços corretos e redução de ruptura.',
+            },
+            {
+              icon: Smartphone,
+              t: "Visibilidade e Fim do Constrangimento",
+              d: "No modelo tradicional, o cliente só descobre o valor final da compra na frente do operador. Com a Via Expressa, ele acompanha o subtotal em tempo real na tela do seu próprio celular. Isso elimina o constrangimento de ter que deixar produtos para trás por falta de limite no cartão ou dinheiro, melhorando a experiência de compra.",
+            },
+            {
+              icon: Shield,
+              t: "Prevenção de Perdas e Quebras",
+              d: "Atacamos duas das maiores causas de quebra de perecíveis e retrabalho: o abandono de carrinhos no meio do corredor por clientes que desistem de enfrentar a fila, e as devoluções de última hora no caixa, seja por desistência ou por falta de saldo. Sem fila e com o valor controlado na palma da mão, o produto vai direto da gôndola para a casa do cliente.",
+            },
+          ].map((p, i) => (
+            <Card
+              key={p.t}
+              delay={i * 120}
+              className="hover:-translate-y-1 hover:border-white/20 transition-transform duration-500"
+            >
+              <div
+                className="w-14 h-14 rounded-xl flex items-center justify-center mb-6"
+                style={{ background: BRAND_SOFT, border: `1px solid ${BRAND_LINE}` }}
+              >
+                <p.icon size={26} style={{ color: BRAND }} />
+              </div>
+              <h3
+                className="text-lg sm:text-xl 2xl:text-2xl font-bold"
+                style={{ color: INK }}
+              >
+                {p.t}
+              </h3>
+              <p
+                className="mt-3 text-sm sm:text-base 2xl:text-lg leading-relaxed"
+                style={{ color: MUTED }}
+              >
+                {p.d}
+              </p>
+            </Card>
+          ))}
         </div>
       </Section>
 
