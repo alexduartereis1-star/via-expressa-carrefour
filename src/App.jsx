@@ -213,6 +213,7 @@ import telaCodigoOperador from "./assets/app-screens/passo6-codigo-operador.png"
 import telaCupomFiscal from "./assets/app-screens/passo7-cupom-fiscal.png";
 import imgAbandono from "./assets/dor-solucao/abandono-carrinho.jpg";
 import imgFila from "./assets/dor-solucao/fila-insatisfacao.jpg";
+import imgDivergenciaPreco from "./assets/dor-solucao/divergencia-preco.jpg";
 import imgPilar1FilaCaixa from "./assets/reacao-em-cadeia/pilar1-fila-caixa.jpg";
 import imgPilar2Constrangimento from "./assets/reacao-em-cadeia/pilar2-constrangimento.jpg";
 import imgPilar3CarrinhoCheio from "./assets/reacao-em-cadeia/pilar3-carrinho-cheio.jpg";
@@ -421,9 +422,9 @@ export default function ViaExpressa() {
               accent: false,
             },
             {
-              img: telaCarrinho,
-              t: "Fricção Zero (Via Expressa)",
-              d: "O novo padrão: até 4 clientes atendidos simultaneamente, com celular e sacola na mão, atravessando o caixa em 60 segundos.",
+              img: imgDivergenciaPreco,
+              t: "O Gargalo da Divergência de Preço",
+              d: "No modelo tradicional, um preço errado descoberto no caixa trava a fila inteira enquanto o fiscal vai até a gôndola checar. Com a Via Expressa, o cliente bipou, viu o preço real na tela e resolveu a dúvida no próprio corredor. O caixa fica blindado contra paralisações.",
               accent: true,
             },
           ].map((c) => (
