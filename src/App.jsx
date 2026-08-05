@@ -20,6 +20,7 @@ import {
   Lock,
   ShoppingCart,
   Timer,
+  Play,
 } from "lucide-react";
 
 /* ------------------------------------------------------------------
@@ -158,6 +159,9 @@ import imgFila from "./assets/dor-solucao/fila-insatisfacao.jpg";
 import imgPilar1FilaCaixa from "./assets/reacao-em-cadeia/pilar1-fila-caixa.jpg";
 import imgPilar2Constrangimento from "./assets/reacao-em-cadeia/pilar2-constrangimento.jpg";
 import imgPilar3CarrinhoCheio from "./assets/reacao-em-cadeia/pilar3-carrinho-cheio.jpg";
+import imgJornadaEntrada from "./assets/jornada-na-pratica/passo1-entrada.jpg";
+import imgJornadaEscaneando from "./assets/jornada-na-pratica/passo2a-escaneando.jpg";
+import imgJornadaEnsacolando from "./assets/jornada-na-pratica/passo2b-ensacolando.jpg";
 
 function CarrefourMark({ size = 56 }) {
   return (
@@ -1068,6 +1072,189 @@ export default function ViaExpressa() {
               </div>
             </Card>
           ))}
+        </div>
+      </Section>
+
+      {/* ============ 6.77. A JORNADA NA PRÁTICA ============ */}
+      <Section id="jornada-na-pratica">
+        <Eyebrow>Prova em loja</Eyebrow>
+        <H2>A Jornada na Prática</H2>
+        <Lead className="mt-6 max-w-3xl">
+          Veja como a Via Expressa transforma a experiência de compra, passo
+          a passo, no chão de loja.
+        </Lead>
+
+        {/* Passo 1 — imagem à esquerda, texto à direita */}
+        <div className="mt-16 sm:mt-20 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center">
+          <div data-reveal className="order-1">
+            <div
+              className="rounded-2xl overflow-hidden"
+              style={{ border: `1px solid ${BRAND_LINE}`, boxShadow: `0 0 50px ${BRAND_SOFT}` }}
+            >
+              <img
+                src={imgJornadaEntrada}
+                alt="Cliente pega o carrinho e escaneia o QR Code inicial"
+                className="w-full h-full object-cover aspect-[4/3]"
+              />
+            </div>
+          </div>
+          <div data-reveal data-reveal-delay={120} className="order-2">
+            <span
+              className="inline-flex items-center justify-center w-9 h-9 rounded-full text-sm font-extrabold mb-4"
+              style={{ background: BRAND, color: "#FFFFFF" }}
+            >
+              1
+            </span>
+            <h3 className="text-2xl sm:text-3xl 2xl:text-4xl font-bold" style={{ color: INK }}>
+              Autonomia desde a Entrada
+            </h3>
+            <p className="mt-4 text-base sm:text-lg 2xl:text-xl leading-relaxed" style={{ color: MUTED }}>
+              O cliente pega o carrinho, escaneia o QR Code inicial e já
+              está pronto para começar. Sem catracas, sem cadastros
+              demorados.
+            </p>
+          </div>
+        </div>
+
+        {/* Passo 2 — texto à esquerda, galeria dupla à direita */}
+        <div className="mt-16 sm:mt-20 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center">
+          <div data-reveal className="order-2 lg:order-1">
+            <span
+              className="inline-flex items-center justify-center w-9 h-9 rounded-full text-sm font-extrabold mb-4"
+              style={{ background: BRAND, color: "#FFFFFF" }}
+            >
+              2
+            </span>
+            <h3 className="text-2xl sm:text-3xl 2xl:text-4xl font-bold" style={{ color: INK }}>
+              Escaneou, Guardou
+            </h3>
+            <p className="mt-4 text-base sm:text-lg 2xl:text-xl leading-relaxed" style={{ color: MUTED }}>
+              No corredor, a mágica acontece. O cliente escaneia o código
+              de barras com a própria câmera e, no mesmo instante, já
+              acomoda o produto nas sacolas dentro do carrinho. O trabalho
+              braçal de balcão é eliminado durante a caminhada.
+            </p>
+          </div>
+          <div
+            data-reveal
+            data-reveal-delay={120}
+            className="order-1 lg:order-2 relative h-72 sm:h-96"
+          >
+            <div
+              className="absolute left-0 top-4 w-[62%] rounded-2xl overflow-hidden"
+              style={{
+                border: `1px solid ${BRAND_LINE}`,
+                filter: "drop-shadow(0 20px 35px rgba(0,0,0,0.45))",
+              }}
+            >
+              <img
+                src={imgJornadaEscaneando}
+                alt="Cliente escaneando produto com a câmera do celular"
+                className="w-full h-full object-cover aspect-[3/4]"
+              />
+            </div>
+            <div
+              className="absolute right-0 bottom-0 w-[62%] rounded-2xl overflow-hidden"
+              style={{
+                border: `1px solid ${BRAND_LINE}`,
+                filter: "drop-shadow(0 20px 35px rgba(0,0,0,0.45))",
+              }}
+            >
+              <img
+                src={imgJornadaEnsacolando}
+                alt="Cliente ensacolando o produto direto no carrinho"
+                className="w-full h-full object-cover aspect-[3/4]"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Passo 3 — o gran finale: checkout em 60 segundos, largura total */}
+        <div data-reveal className="mt-20 sm:mt-24 text-center">
+          <span
+            className="inline-flex items-center justify-center w-9 h-9 rounded-full text-sm font-extrabold mb-4"
+            style={{ background: BRAND, color: "#FFFFFF" }}
+          >
+            3
+          </span>
+          <h3 className="text-2xl sm:text-3xl 2xl:text-4xl font-bold" style={{ color: INK }}>
+            A Prova Real: O Checkout
+          </h3>
+          <p
+            className="mt-3 max-w-2xl mx-auto text-base sm:text-lg 2xl:text-xl leading-relaxed"
+            style={{ color: MUTED }}
+          >
+            Assista à fluidez do sistema em ação. O cliente chega ao caixa
+            apenas para auditoria e pagamento.
+          </p>
+        </div>
+
+        <div className="mt-10 sm:mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+          {/* Vídeo 1 — horizontal, formato YouTube */}
+          <div data-reveal data-reveal-delay={80} className="group">
+            <div
+              className="relative w-full aspect-video rounded-2xl overflow-hidden flex items-center justify-center transition-shadow duration-500"
+              style={{
+                background: "#0B1220",
+                border: `1px solid ${BRAND}`,
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.boxShadow = "0 0 20px rgba(30,82,168,0.5)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.boxShadow = "none";
+              }}
+            >
+              {/* TODO: trocar por <video src="..." controls className="w-full h-full object-cover" /> ou embed do YouTube/Vimeo */}
+              <div className="flex flex-col items-center gap-3" style={{ color: MUTED }}>
+                <span
+                  className="w-16 h-16 rounded-full flex items-center justify-center"
+                  style={{ background: BRAND_SOFT, border: `1px solid ${BRAND_LINE}` }}
+                >
+                  <Play size={26} style={{ color: BRAND }} />
+                </span>
+                <span className="text-sm">Vídeo horizontal — 16:9</span>
+              </div>
+            </div>
+            <p className="mt-3 text-sm text-center" style={{ color: MUTED }}>
+              Checkout completo, visão de tela
+            </p>
+          </div>
+
+          {/* Vídeo 2 — vertical, formato celular */}
+          <div data-reveal data-reveal-delay={160} className="group flex justify-center">
+            <div className="w-full max-w-[280px]">
+              <div
+                className="relative w-full aspect-[9/16] rounded-2xl overflow-hidden flex items-center justify-center transition-shadow duration-500"
+                style={{
+                  background: "#0B1220",
+                  border: `1px solid ${BRAND}`,
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.boxShadow = "0 0 20px rgba(30,82,168,0.5)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.boxShadow = "none";
+                }}
+              >
+                {/* TODO: trocar por <video src="..." controls className="w-full h-full object-cover" /> */}
+                <div className="flex flex-col items-center gap-3" style={{ color: MUTED }}>
+                  <span
+                    className="w-16 h-16 rounded-full flex items-center justify-center"
+                    style={{ background: BRAND_SOFT, border: `1px solid ${BRAND_LINE}` }}
+                  >
+                    <Play size={26} style={{ color: BRAND }} />
+                  </span>
+                  <span className="text-sm text-center px-4">
+                    Vídeo vertical — 9:16
+                  </span>
+                </div>
+              </div>
+              <p className="mt-3 text-sm text-center" style={{ color: MUTED }}>
+                Gravação no celular do cliente
+              </p>
+            </div>
+          </div>
         </div>
       </Section>
 
