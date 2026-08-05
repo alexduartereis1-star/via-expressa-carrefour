@@ -38,6 +38,20 @@ const BG = "#111827";
 const INK = "#F8FAFC";
 const MUTED = "#94A3B8";
 
+/* ------------------------------------------------------------------
+   VÍDEOS DA SEÇÃO "A JORNADA NA PRÁTICA" — passo 3 (checkout)
+   Cole aqui o link de EMBED (não o link normal da página).
+   Como pegar no YouTube: abra o vídeo → Compartilhar → Incorporar →
+   copie só o valor do atributo src="..." do código gerado
+   (algo como https://www.youtube.com/embed/XXXXXXXXXXX).
+   No Vimeo: Compartilhar → Incorporar → mesma lógica
+   (https://player.vimeo.com/video/XXXXXXX).
+   Deixe como "" (vazio) enquanto não tiver o vídeo — o placeholder
+   com o ícone de play continua aparecendo normalmente.
+   ------------------------------------------------------------------ */
+const VIDEO_CHECKOUT_HORIZONTAL_URL = ""; // vídeo 16:9 — visão de tela
+const VIDEO_CHECKOUT_VERTICAL_URL = ""; // vídeo 9:16 — gravação no celular
+
 /* --- utilitário: revelar no scroll (respeita prefers-reduced-motion) --- */
 function useReveal() {
   useEffect(() => {
@@ -122,6 +136,49 @@ function Lead({ children, className = "" }) {
     >
       {children}
     </p>
+  );
+}
+
+function VideoEmbed({ src, aspectClass, label, caption }) {
+  return (
+    <div>
+      <div
+        className="relative w-full rounded-2xl overflow-hidden transition-shadow duration-500"
+        style={{ background: "#0B1220", border: `1px solid ${BRAND}` }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.boxShadow = "0 0 20px rgba(30,82,168,0.5)";
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.boxShadow = "none";
+        }}
+      >
+        <div className={aspectClass}>
+          {src ? (
+            <iframe
+              src={src}
+              title={label}
+              className="w-full h-full"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          ) : (
+            <div className="w-full h-full flex flex-col items-center justify-center gap-3" style={{ color: MUTED }}>
+              <span
+                className="w-16 h-16 rounded-full flex items-center justify-center"
+                style={{ background: BRAND_SOFT, border: `1px solid ${BRAND_LINE}` }}
+              >
+                <Play size={26} style={{ color: BRAND }} />
+              </span>
+              <span className="text-sm text-center px-4">{label}</span>
+            </div>
+          )}
+        </div>
+      </div>
+      <p className="mt-3 text-sm text-center" style={{ color: MUTED }}>
+        {caption}
+      </p>
+    </div>
   );
 }
 
@@ -1191,68 +1248,24 @@ export default function ViaExpressa() {
 
         <div className="mt-10 sm:mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
           {/* Vídeo 1 — horizontal, formato YouTube */}
-          <div data-reveal data-reveal-delay={80} className="group">
-            <div
-              className="relative w-full aspect-video rounded-2xl overflow-hidden flex items-center justify-center transition-shadow duration-500"
-              style={{
-                background: "#0B1220",
-                border: `1px solid ${BRAND}`,
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.boxShadow = "0 0 20px rgba(30,82,168,0.5)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.boxShadow = "none";
-              }}
-            >
-              {/* TODO: trocar por <video src="..." controls className="w-full h-full object-cover" /> ou embed do YouTube/Vimeo */}
-              <div className="flex flex-col items-center gap-3" style={{ color: MUTED }}>
-                <span
-                  className="w-16 h-16 rounded-full flex items-center justify-center"
-                  style={{ background: BRAND_SOFT, border: `1px solid ${BRAND_LINE}` }}
-                >
-                  <Play size={26} style={{ color: BRAND }} />
-                </span>
-                <span className="text-sm">Vídeo horizontal — 16:9</span>
-              </div>
-            </div>
-            <p className="mt-3 text-sm text-center" style={{ color: MUTED }}>
-              Checkout completo, visão de tela
-            </p>
+          <div data-reveal data-reveal-delay={80}>
+            <VideoEmbed
+              src={VIDEO_CHECKOUT_HORIZONTAL_URL}
+              aspectClass="aspect-video"
+              label="Vídeo horizontal — 16:9"
+              caption="Checkout completo, visão de tela"
+            />
           </div>
 
           {/* Vídeo 2 — vertical, formato celular */}
-          <div data-reveal data-reveal-delay={160} className="group flex justify-center">
+          <div data-reveal data-reveal-delay={160} className="flex justify-center">
             <div className="w-full max-w-[280px]">
-              <div
-                className="relative w-full aspect-[9/16] rounded-2xl overflow-hidden flex items-center justify-center transition-shadow duration-500"
-                style={{
-                  background: "#0B1220",
-                  border: `1px solid ${BRAND}`,
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.boxShadow = "0 0 20px rgba(30,82,168,0.5)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.boxShadow = "none";
-                }}
-              >
-                {/* TODO: trocar por <video src="..." controls className="w-full h-full object-cover" /> */}
-                <div className="flex flex-col items-center gap-3" style={{ color: MUTED }}>
-                  <span
-                    className="w-16 h-16 rounded-full flex items-center justify-center"
-                    style={{ background: BRAND_SOFT, border: `1px solid ${BRAND_LINE}` }}
-                  >
-                    <Play size={26} style={{ color: BRAND }} />
-                  </span>
-                  <span className="text-sm text-center px-4">
-                    Vídeo vertical — 9:16
-                  </span>
-                </div>
-              </div>
-              <p className="mt-3 text-sm text-center" style={{ color: MUTED }}>
-                Gravação no celular do cliente
-              </p>
+              <VideoEmbed
+                src={VIDEO_CHECKOUT_VERTICAL_URL}
+                aspectClass="aspect-[9/16]"
+                label="Vídeo vertical — 9:16"
+                caption="Gravação no celular do cliente"
+              />
             </div>
           </div>
         </div>
