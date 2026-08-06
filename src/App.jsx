@@ -471,6 +471,114 @@ export default function ViaExpressa() {
         </div>
       </Section>
 
+      {/* ============ 6.75. A REAÇÃO EM CADEIA NO SALÃO DE VENDAS ============ */}
+      <Section id="reacao-em-cadeia">
+        <Eyebrow>Além da fila</Eyebrow>
+        <H2>
+          Além do Caixa: <span style={{ color: BRAND }}>O Impacto na Loja Inteira</span>
+        </H2>
+        <Lead className="mt-6 max-w-3xl">
+          Como o escoamento rápido protege o abastecimento, zera o
+          constrangimento e estanca as perdas.
+        </Lead>
+
+        {/* trilho de conexão — representa a reação em cadeia entre os 3 pilares */}
+        <div
+          data-reveal
+          className="hidden lg:flex items-center justify-center gap-3 mt-14 mb-2 px-20"
+        >
+          <span
+            className="flex-1 h-px"
+            style={{ background: `linear-gradient(90deg, transparent, ${BRAND}, transparent)` }}
+          />
+          {[0, 1, 2].map((i) => (
+            <span key={i} className="relative flex h-2.5 w-2.5">
+              <span
+                className="absolute inline-flex h-full w-full rounded-full opacity-75 animate-ping"
+                style={{ background: BRAND, animationDelay: `${i * 0.4}s`, animationDuration: "2s" }}
+              />
+              <span
+                className="relative inline-flex rounded-full h-2.5 w-2.5"
+                style={{ background: BRAND }}
+              />
+            </span>
+          ))}
+          <span
+            className="flex-1 h-px"
+            style={{ background: `linear-gradient(90deg, transparent, ${BRAND}, transparent)` }}
+          />
+        </div>
+
+        <div className="mt-6 sm:mt-8 grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
+          {[
+            {
+              icon: Boxes,
+              img: imgPilar1FilaCaixa,
+              t: "O Fim da Polivalência Forçada",
+              d: 'Quando o caixa trava, a loja sofre. Com a Via Expressa absorvendo o fluxo, eliminamos a necessidade de arrancar repositores e promotores do salão de vendas para "abrir caixa". A equipe de abastecimento e precificação permanece em seus postos, garantindo gôndolas cheias, preços corretos e redução de ruptura.',
+            },
+            {
+              icon: Smartphone,
+              img: imgPilar2Constrangimento,
+              t: "Visibilidade e Fim do Constrangimento",
+              d: "No modelo tradicional, o cliente só descobre o valor final da compra na frente do operador. Com a Via Expressa, ele acompanha o subtotal em tempo real na tela do seu próprio celular. Isso elimina o constrangimento de ter que deixar produtos para trás por falta de limite no cartão ou dinheiro, melhorando a experiência de compra.",
+            },
+            {
+              icon: Shield,
+              img: imgPilar3CarrinhoCheio,
+              t: "Prevenção de Perdas e Quebras",
+              d: "Atacamos duas das maiores causas de quebra de perecíveis e retrabalho: o abandono de carrinhos no meio do corredor por clientes que desistem de enfrentar a fila, e as devoluções de última hora no caixa, seja por desistência ou por falta de saldo. Sem fila e com o valor controlado na palma da mão, o produto vai direto da gôndola para a casa do cliente.",
+            },
+          ].map((p, i) => (
+            <Card
+              key={p.t}
+              delay={i * 120}
+              padded={false}
+              className="overflow-hidden hover:-translate-y-1 hover:border-white/20 transition-transform duration-500 group"
+            >
+              {/* imagem no topo — zoom de entrada + zoom contínuo no hover do card */}
+              <div className="relative w-full h-40 sm:h-48 overflow-hidden">
+                <img
+                  src={p.img}
+                  alt={p.t}
+                  className="absolute inset-0 w-full h-full object-cover scale-110 group-hover:scale-125 transition-transform duration-[1200ms] ease-out"
+                />
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background: `linear-gradient(180deg, rgba(17,24,39,0.15) 0%, ${BG} 92%)`,
+                  }}
+                />
+                <div
+                  className="absolute bottom-3 left-6 w-14 h-14 rounded-xl flex items-center justify-center transition-transform duration-500 group-hover:-translate-y-1 group-hover:scale-105"
+                  style={{
+                    background: BRAND,
+                    boxShadow: `0 10px 30px -6px rgba(30,82,168,0.7)`,
+                  }}
+                >
+                  <p.icon size={26} style={{ color: "#FFFFFF" }} />
+                </div>
+              </div>
+
+              <div className="p-6 sm:p-8 2xl:p-10 pt-8">
+                <h3
+                  className="text-lg sm:text-xl 2xl:text-2xl font-bold"
+                  style={{ color: INK }}
+                >
+                  {p.t}
+                </h3>
+                <p
+                  className="mt-3 text-sm sm:text-base 2xl:text-lg leading-relaxed"
+                  style={{ color: MUTED }}
+                >
+                  {p.d}
+                </p>
+              </div>
+            </Card>
+          ))}
+        </div>
+      </Section>
+
       {/* ============ 1.5. MANIFESTO — FAST TRACK / FRICÇÃO ZERO ============ */}
       <Section id="manifesto-fast-track" className="py-16 sm:py-24 lg:py-32">
         <div
@@ -1027,114 +1135,6 @@ export default function ViaExpressa() {
               destravados em capacidade de faturamento por operador, por dia.
             </p>
           </div>
-        </div>
-      </Section>
-
-      {/* ============ 6.75. A REAÇÃO EM CADEIA NO SALÃO DE VENDAS ============ */}
-      <Section id="reacao-em-cadeia">
-        <Eyebrow>Além da fila</Eyebrow>
-        <H2>
-          Além do Caixa: <span style={{ color: BRAND }}>O Impacto na Loja Inteira</span>
-        </H2>
-        <Lead className="mt-6 max-w-3xl">
-          Como o escoamento rápido protege o abastecimento, zera o
-          constrangimento e estanca as perdas.
-        </Lead>
-
-        {/* trilho de conexão — representa a reação em cadeia entre os 3 pilares */}
-        <div
-          data-reveal
-          className="hidden lg:flex items-center justify-center gap-3 mt-14 mb-2 px-20"
-        >
-          <span
-            className="flex-1 h-px"
-            style={{ background: `linear-gradient(90deg, transparent, ${BRAND}, transparent)` }}
-          />
-          {[0, 1, 2].map((i) => (
-            <span key={i} className="relative flex h-2.5 w-2.5">
-              <span
-                className="absolute inline-flex h-full w-full rounded-full opacity-75 animate-ping"
-                style={{ background: BRAND, animationDelay: `${i * 0.4}s`, animationDuration: "2s" }}
-              />
-              <span
-                className="relative inline-flex rounded-full h-2.5 w-2.5"
-                style={{ background: BRAND }}
-              />
-            </span>
-          ))}
-          <span
-            className="flex-1 h-px"
-            style={{ background: `linear-gradient(90deg, transparent, ${BRAND}, transparent)` }}
-          />
-        </div>
-
-        <div className="mt-6 sm:mt-8 grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
-          {[
-            {
-              icon: Boxes,
-              img: imgPilar1FilaCaixa,
-              t: "O Fim da Polivalência Forçada",
-              d: 'Quando o caixa trava, a loja sofre. Com a Via Expressa absorvendo o fluxo, eliminamos a necessidade de arrancar repositores e promotores do salão de vendas para "abrir caixa". A equipe de abastecimento e precificação permanece em seus postos, garantindo gôndolas cheias, preços corretos e redução de ruptura.',
-            },
-            {
-              icon: Smartphone,
-              img: imgPilar2Constrangimento,
-              t: "Visibilidade e Fim do Constrangimento",
-              d: "No modelo tradicional, o cliente só descobre o valor final da compra na frente do operador. Com a Via Expressa, ele acompanha o subtotal em tempo real na tela do seu próprio celular. Isso elimina o constrangimento de ter que deixar produtos para trás por falta de limite no cartão ou dinheiro, melhorando a experiência de compra.",
-            },
-            {
-              icon: Shield,
-              img: imgPilar3CarrinhoCheio,
-              t: "Prevenção de Perdas e Quebras",
-              d: "Atacamos duas das maiores causas de quebra de perecíveis e retrabalho: o abandono de carrinhos no meio do corredor por clientes que desistem de enfrentar a fila, e as devoluções de última hora no caixa, seja por desistência ou por falta de saldo. Sem fila e com o valor controlado na palma da mão, o produto vai direto da gôndola para a casa do cliente.",
-            },
-          ].map((p, i) => (
-            <Card
-              key={p.t}
-              delay={i * 120}
-              padded={false}
-              className="overflow-hidden hover:-translate-y-1 hover:border-white/20 transition-transform duration-500 group"
-            >
-              {/* imagem no topo — zoom de entrada + zoom contínuo no hover do card */}
-              <div className="relative w-full h-40 sm:h-48 overflow-hidden">
-                <img
-                  src={p.img}
-                  alt={p.t}
-                  className="absolute inset-0 w-full h-full object-cover scale-110 group-hover:scale-125 transition-transform duration-[1200ms] ease-out"
-                />
-                <div
-                  className="absolute inset-0"
-                  style={{
-                    background: `linear-gradient(180deg, rgba(17,24,39,0.15) 0%, ${BG} 92%)`,
-                  }}
-                />
-                <div
-                  className="absolute bottom-3 left-6 w-14 h-14 rounded-xl flex items-center justify-center transition-transform duration-500 group-hover:-translate-y-1 group-hover:scale-105"
-                  style={{
-                    background: BRAND,
-                    boxShadow: `0 10px 30px -6px rgba(30,82,168,0.7)`,
-                  }}
-                >
-                  <p.icon size={26} style={{ color: "#FFFFFF" }} />
-                </div>
-              </div>
-
-              <div className="p-6 sm:p-8 2xl:p-10 pt-8">
-                <h3
-                  className="text-lg sm:text-xl 2xl:text-2xl font-bold"
-                  style={{ color: INK }}
-                >
-                  {p.t}
-                </h3>
-                <p
-                  className="mt-3 text-sm sm:text-base 2xl:text-lg leading-relaxed"
-                  style={{ color: MUTED }}
-                >
-                  {p.d}
-                </p>
-              </div>
-            </Card>
-          ))}
         </div>
       </Section>
 
