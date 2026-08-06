@@ -917,7 +917,12 @@ export default function ViaExpressa() {
         </H2>
         <Lead className="mt-6 max-w-3xl">
           Loja aberta das 6h às 23h — 17 horas, 1.020 minutos. Nesse mesmo
-          intervalo, veja a diferença de capacidade por operador.
+          intervalo, veja a diferença de capacidade de escoamento por
+          operador.{" "}
+          <span className="italic opacity-75">
+            (Base de cálculo: Ticket médio de R$ 195 para compras de até 20
+            itens).
+          </span>
         </Lead>
 
         <div className="mt-10 sm:mt-16 grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
