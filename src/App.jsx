@@ -217,7 +217,7 @@ import imgDivergenciaPreco from "./assets/dor-solucao/divergencia-preco.jpg";
 import imgPilar1FilaCaixa from "./assets/reacao-em-cadeia/pilar1-fila-caixa.jpg";
 import imgPilar2Constrangimento from "./assets/reacao-em-cadeia/pilar2-constrangimento.jpg";
 import imgPilar3CarrinhoCheio from "./assets/reacao-em-cadeia/pilar3-carrinho-cheio.jpg";
-import imgJornadaEntrada from "./assets/jornada-na-pratica/passo1-entrada.jpg";
+import imgJornadaEntrada from "./assets/jornada-na-pratica/1786108270790.jpeg";
 import imgJornadaEscaneando from "./assets/jornada-na-pratica/passo2a-escaneando.jpg";
 import imgJornadaEnsacolando from "./assets/jornada-na-pratica/passo2b-ensacolando.jpg";
 
@@ -1156,20 +1156,20 @@ export default function ViaExpressa() {
             >
               <img
                 src={imgJornadaEntrada}
-                alt="Cliente pega o carrinho e escaneia o QR Code inicial"
+                alt="Cliente apontando a câmera do celular para o QR Code exibido na TV do salão de vendas"
                 className="w-full h-full object-cover aspect-[4/3]"
               />
             </div>
           </div>
           <div data-reveal data-reveal-delay={120} className="order-2">
             <span
-              className="inline-flex items-center justify-center w-9 h-9 rounded-full text-sm font-extrabold mb-4"
-              style={{ background: BRAND, color: "#FFFFFF" }}
+              className="inline-flex items-center justify-center w-10 h-10 rounded-full text-base font-extrabold mb-4"
+              style={{ background: BRAND, color: "#FFFFFF", boxShadow: `0 6px 18px -4px rgba(30,82,168,0.7)` }}
             >
               1
             </span>
             <h3 className="text-2xl sm:text-3xl 2xl:text-4xl font-bold" style={{ color: INK }}>
-              Autonomia desde a Entrada
+              Passo 1: Autonomia desde a Entrada
             </h3>
             <p className="mt-4 text-base sm:text-lg 2xl:text-xl leading-relaxed" style={{ color: MUTED }}>
               O cliente pega o carrinho, escaneia o QR Code inicial e já
@@ -1183,13 +1183,13 @@ export default function ViaExpressa() {
         <div className="mt-16 sm:mt-20 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center">
           <div data-reveal className="order-2 lg:order-1">
             <span
-              className="inline-flex items-center justify-center w-9 h-9 rounded-full text-sm font-extrabold mb-4"
-              style={{ background: BRAND, color: "#FFFFFF" }}
+              className="inline-flex items-center justify-center w-10 h-10 rounded-full text-base font-extrabold mb-4"
+              style={{ background: BRAND, color: "#FFFFFF", boxShadow: `0 6px 18px -4px rgba(30,82,168,0.7)` }}
             >
               2
             </span>
             <h3 className="text-2xl sm:text-3xl 2xl:text-4xl font-bold" style={{ color: INK }}>
-              Escaneou, Guardou
+              Passo 2: Escaneou, Guardou
             </h3>
             <p className="mt-4 text-base sm:text-lg 2xl:text-xl leading-relaxed" style={{ color: MUTED }}>
               No corredor, a mágica acontece. O cliente escaneia o código
@@ -1235,13 +1235,13 @@ export default function ViaExpressa() {
         {/* Passo 3 — o gran finale: checkout em 60 segundos, largura total */}
         <div data-reveal className="mt-20 sm:mt-24 text-center">
           <span
-            className="inline-flex items-center justify-center w-9 h-9 rounded-full text-sm font-extrabold mb-4"
-            style={{ background: BRAND, color: "#FFFFFF" }}
+            className="inline-flex items-center justify-center w-10 h-10 rounded-full text-base font-extrabold mb-4"
+            style={{ background: BRAND, color: "#FFFFFF", boxShadow: `0 6px 18px -4px rgba(30,82,168,0.7)` }}
           >
             3
           </span>
           <h3 className="text-2xl sm:text-3xl 2xl:text-4xl font-bold" style={{ color: INK }}>
-            A Prova Real: O Checkout
+            Passo 3: A Prova Real — O Checkout
           </h3>
           <p
             className="mt-3 max-w-2xl mx-auto text-base sm:text-lg 2xl:text-xl leading-relaxed"
