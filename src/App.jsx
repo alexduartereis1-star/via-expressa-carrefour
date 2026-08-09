@@ -39,7 +39,7 @@ const INK = "#F8FAFC";
 const MUTED = "#94A3B8";
 
 /* ------------------------------------------------------------------
-   VÍDEOS DA SEÇÃO "A JORNADA NA PRÁTICA" — passo 3 (checkout)
+   VÍDEOS DA SEÇÃO "A JORNADA INTEGRADA (FÍSICO + DIGITAL)" — passo 3 (checkout)
    Cole aqui o link de EMBED (não o link normal da página).
    Como pegar no YouTube: abra o vídeo → Compartilhar → Incorporar →
    copie só o valor do atributo src="..." do código gerado
@@ -177,6 +177,105 @@ function VideoEmbed({ src, aspectClass, label, caption }) {
       </div>
       <p className="mt-3 text-sm text-center" style={{ color: MUTED }}>
         {caption}
+      </p>
+    </div>
+  );
+}
+
+const SETE_TELAS = [
+  {
+    n: "01",
+    img: telaQrCode,
+    t: "Aponta pro QR",
+    d: "Sem instalar nada — a câmera do celular já abre o app.",
+  },
+  {
+    n: "02",
+    img: telaAbrirApp,
+    t: "Abre na hora",
+    d: "Carregamento instantâneo, direto no navegador.",
+  },
+  {
+    n: "03",
+    img: telaInicial,
+    t: "Toca em Escanear",
+    d: "Catálogo da loja já carregado, carrinho vazio pronto pra começar.",
+  },
+  {
+    n: "04",
+    img: telaCamera,
+    t: "Aponta a câmera",
+    d: "Lê o código de barras direto na gôndola, sem leitor físico.",
+  },
+  {
+    n: "05",
+    img: telaCarrinho,
+    t: "Carrinho em tempo real",
+    d: "Cada item somado, com preço e subtotal atualizados na hora.",
+  },
+  {
+    n: "06",
+    img: telaCodigoOperador,
+    t: "Código pro operador",
+    d: "No caixa, mostra a rajada — item por item — pro operador ler.",
+  },
+  {
+    n: "07",
+    img: telaCupomFiscal,
+    t: "Cupom fiscal emitido",
+    d: "Testado em loja real — a compra fecha certinho, com nota fiscal.",
+  },
+];
+
+function ScreenMini({ idx, hoveredScreen, setHoveredScreen }) {
+  const s = SETE_TELAS[idx];
+  const isHovered = hoveredScreen === idx;
+  const dimmed = hoveredScreen !== null && hoveredScreen !== idx;
+  return (
+    <div
+      className="flex flex-col items-center"
+      onMouseEnter={() => setHoveredScreen(idx)}
+      onMouseLeave={() => setHoveredScreen(null)}
+    >
+      <div
+        className="relative w-full rounded-2xl overflow-hidden flex items-center justify-center"
+        style={{
+          border: `1px solid ${BRAND_LINE}`,
+          aspectRatio: "9 / 16",
+          background: "#0B1220",
+          transition:
+            "transform 500ms cubic-bezier(0.16,1,0.3,1), box-shadow 500ms ease-out, opacity 500ms ease-out",
+          transform: isHovered ? "scale(1.08)" : "scale(1)",
+          boxShadow: isHovered
+            ? `0 25px 45px -10px rgba(30,82,168,0.6), 0 0 70px ${BRAND_SOFT}`
+            : `0 0 40px ${BRAND_SOFT}`,
+          opacity: dimmed ? 0.55 : 1,
+        }}
+      >
+        <img src={s.img} alt={s.t} className="w-full h-full object-contain" />
+        <span
+          className="absolute top-2 left-2 flex items-center justify-center w-7 h-7 rounded-full text-xs font-extrabold"
+          style={{
+            background: BRAND,
+            color: "#FFFFFF",
+            transition: "transform 500ms ease-out",
+            transform: isHovered ? "scale(1.15)" : "scale(1)",
+          }}
+        >
+          {s.n}
+        </span>
+      </div>
+      <h4
+        className="mt-3 text-xs sm:text-sm font-bold text-center"
+        style={{ color: INK, transition: "opacity 500ms ease-out", opacity: dimmed ? 0.6 : 1 }}
+      >
+        {s.t}
+      </h4>
+      <p
+        className="mt-1 text-[11px] sm:text-xs text-center leading-snug"
+        style={{ color: MUTED, transition: "opacity 500ms ease-out", opacity: dimmed ? 0.6 : 1 }}
+      >
+        {s.d}
       </p>
     </div>
   );
@@ -758,124 +857,209 @@ export default function ViaExpressa() {
         </div>
       </Section>
 
-      {/* ============ 4.5. PASSO A PASSO REAL DO APP ============ */}
-      <Section id="app-real">
-        <Eyebrow>Direto do celular</Eyebrow>
+      {/* ============ 4.5. A JORNADA INTEGRADA (FÍSICO + DIGITAL) ============ */}
+      <Section id="jornada-integrada">
+        <Eyebrow>Físico + digital</Eyebrow>
         <H2>
-          Não é conceito. <span style={{ color: BRAND }}>É o app rodando agora.</span>
+          A Jornada Integrada <span style={{ color: BRAND }}>(Físico + Digital)</span>
         </H2>
         <Lead className="mt-6 max-w-3xl">
-          Sete telas, do QR code ao cupom fiscal: a jornada completa, real,
-          testada em loja.
+          Veja a sincronia perfeita entre o que o cliente faz no chão de
+          loja e o que acontece na tela do celular, passo a passo.
         </Lead>
 
-        <div className="mt-10 sm:mt-16 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-4 sm:gap-5">
-          {[
-            {
-              n: "01",
-              img: telaQrCode,
-              t: "Aponta pro QR",
-              d: "Sem instalar nada — a câmera do celular já abre o app.",
-            },
-            {
-              n: "02",
-              img: telaAbrirApp,
-              t: "Abre na hora",
-              d: "Carregamento instantâneo, direto no navegador.",
-            },
-            {
-              n: "03",
-              img: telaInicial,
-              t: "Toca em Escanear",
-              d: "Catálogo da loja já carregado, carrinho vazio pronto pra começar.",
-            },
-            {
-              n: "04",
-              img: telaCamera,
-              t: "Aponta a câmera",
-              d: "Lê o código de barras direto na gôndola, sem leitor físico.",
-            },
-            {
-              n: "05",
-              img: telaCarrinho,
-              t: "Carrinho em tempo real",
-              d: "Cada item somado, com preço e subtotal atualizados na hora.",
-            },
-            {
-              n: "06",
-              img: telaCodigoOperador,
-              t: "Código pro operador",
-              d: "No caixa, mostra a rajada — item por item — pro operador ler.",
-            },
-            {
-              n: "07",
-              img: telaCupomFiscal,
-              t: "Cupom fiscal emitido",
-              d: "Testado em loja real — a compra fecha certinho, com nota fiscal.",
-            },
-          ].map((s, idx) => {
-            const isHovered = hoveredScreen === idx;
-            const dimmed = hoveredScreen !== null && hoveredScreen !== idx;
-            return (
-              <div
-                key={s.n}
-                data-reveal
-                data-reveal-delay={idx * 90}
-                className="flex flex-col items-center"
-                onMouseEnter={() => setHoveredScreen(idx)}
-                onMouseLeave={() => setHoveredScreen(null)}
+        {/* ---------- Passo 1 — Físico (esquerda) x Digital (direita) ---------- */}
+        <div className="mt-16 sm:mt-20">
+          <div data-reveal className="mb-8">
+            <span
+              className="inline-flex items-center justify-center w-10 h-10 rounded-full text-base font-extrabold mb-4"
+              style={{ background: BRAND, color: "#FFFFFF", boxShadow: `0 6px 18px -4px rgba(30,82,168,0.7)` }}
+            >
+              1
+            </span>
+            <h3 className="text-2xl sm:text-3xl 2xl:text-4xl font-bold" style={{ color: INK }}>
+              Passo 1: Autonomia desde a Entrada
+            </h3>
+            <p className="mt-3 max-w-2xl text-base sm:text-lg 2xl:text-xl leading-relaxed" style={{ color: MUTED }}>
+              O cliente pega o carrinho, escaneia o QR Code inicial e já
+              está pronto para começar. Sem catracas, sem cadastros
+              demorados.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center">
+            {/* Físico */}
+            <div data-reveal className="order-1">
+              <span
+                className="inline-block text-xs font-bold tracking-widest uppercase mb-3"
+                style={{ color: MUTED }}
               >
+                No salão de vendas
+              </span>
+              <div
+                className="rounded-2xl overflow-hidden"
+                style={{ border: `1px solid ${BRAND_LINE}`, boxShadow: `0 0 50px ${BRAND_SOFT}` }}
+              >
+                <img
+                  src={imgJornadaEntrada}
+                  alt="Cliente apontando a câmera do celular para o QR Code exibido na TV do salão de vendas"
+                  className="w-full h-full object-cover aspect-[4/3]"
+                />
+              </div>
+            </div>
+            {/* Digital */}
+            <div data-reveal data-reveal-delay={120} className="order-2">
+              <span
+                className="inline-block text-xs font-bold tracking-widest uppercase mb-3"
+                style={{ color: MUTED }}
+              >
+                Na tela do celular
+              </span>
+              <div className="grid grid-cols-2 gap-4 sm:gap-5 max-w-sm mx-auto lg:mx-0">
+                <ScreenMini idx={0} hoveredScreen={hoveredScreen} setHoveredScreen={setHoveredScreen} />
+                <ScreenMini idx={1} hoveredScreen={hoveredScreen} setHoveredScreen={setHoveredScreen} />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ---------- Passo 2 — Digital (esquerda) x Físico (direita) ---------- */}
+        <div className="mt-20 sm:mt-24">
+          <div data-reveal className="mb-8">
+            <span
+              className="inline-flex items-center justify-center w-10 h-10 rounded-full text-base font-extrabold mb-4"
+              style={{ background: BRAND, color: "#FFFFFF", boxShadow: `0 6px 18px -4px rgba(30,82,168,0.7)` }}
+            >
+              2
+            </span>
+            <h3 className="text-2xl sm:text-3xl 2xl:text-4xl font-bold" style={{ color: INK }}>
+              Passo 2: Escaneou, Guardou
+            </h3>
+            <p className="mt-3 max-w-2xl text-base sm:text-lg 2xl:text-xl leading-relaxed" style={{ color: MUTED }}>
+              No corredor, a mágica acontece. O cliente escaneia o código
+              de barras com a própria câmera e, no mesmo instante, já
+              acomoda o produto nas sacolas dentro do carrinho. O trabalho
+              braçal de balcão é eliminado durante a caminhada.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center">
+            {/* Digital */}
+            <div data-reveal className="order-2 lg:order-1">
+              <span
+                className="inline-block text-xs font-bold tracking-widest uppercase mb-3"
+                style={{ color: MUTED }}
+              >
+                Na tela do celular
+              </span>
+              <div className="grid grid-cols-3 gap-3 sm:gap-4">
+                <ScreenMini idx={2} hoveredScreen={hoveredScreen} setHoveredScreen={setHoveredScreen} />
+                <ScreenMini idx={3} hoveredScreen={hoveredScreen} setHoveredScreen={setHoveredScreen} />
+                <ScreenMini idx={4} hoveredScreen={hoveredScreen} setHoveredScreen={setHoveredScreen} />
+              </div>
+            </div>
+            {/* Físico */}
+            <div
+              data-reveal
+              data-reveal-delay={120}
+              className="order-1 lg:order-2"
+            >
+              <span
+                className="inline-block text-xs font-bold tracking-widest uppercase mb-3"
+                style={{ color: MUTED }}
+              >
+                No salão de vendas
+              </span>
+              <div className="relative h-72 sm:h-96">
                 <div
-                  className="relative w-full rounded-2xl overflow-hidden flex items-center justify-center"
+                  className="absolute left-0 top-4 w-[62%] rounded-2xl overflow-hidden"
                   style={{
                     border: `1px solid ${BRAND_LINE}`,
-                    aspectRatio: "9 / 16",
-                    background: "#0B1220",
-                    transition:
-                      "transform 500ms cubic-bezier(0.16,1,0.3,1), box-shadow 500ms ease-out, opacity 500ms ease-out",
-                    transform: isHovered ? "scale(1.1)" : "scale(1)",
-                    boxShadow: isHovered
-                      ? `0 25px 45px -10px rgba(30,82,168,0.6), 0 0 70px ${BRAND_SOFT}`
-                      : `0 0 40px ${BRAND_SOFT}`,
-                    opacity: dimmed ? 0.55 : 1,
+                    filter: "drop-shadow(0 20px 35px rgba(0,0,0,0.45))",
                   }}
                 >
                   <img
-                    src={s.img}
-                    alt={s.t}
-                    className="w-full h-full object-contain"
+                    src={imgJornadaEscaneando}
+                    alt="Cliente escaneando produto com a câmera do celular"
+                    className="w-full h-full object-cover aspect-[3/4]"
                   />
-                  <span
-                    className="absolute top-2 left-2 sm:top-3 sm:left-3 flex items-center justify-center w-7 h-7 sm:w-9 sm:h-9 rounded-full text-xs sm:text-sm font-extrabold"
-                    style={{
-                      background: BRAND,
-                      color: "#FFFFFF",
-                      transition: "transform 500ms ease-out",
-                      transform: isHovered ? "scale(1.15)" : "scale(1)",
-                    }}
-                  >
-                    {s.n}
-                  </span>
                 </div>
-                <h3
-                  className="mt-4 text-sm sm:text-lg 2xl:text-xl font-bold text-center"
-                  style={{ transition: "opacity 500ms ease-out", opacity: dimmed ? 0.6 : 1 }}
-                >
-                  {s.t}
-                </h3>
-                <p
-                  className="mt-1.5 text-xs sm:text-sm 2xl:text-base text-center leading-snug"
+                <div
+                  className="absolute right-0 bottom-0 w-[62%] rounded-2xl overflow-hidden"
                   style={{
-                    color: MUTED,
-                    transition: "opacity 500ms ease-out",
-                    opacity: dimmed ? 0.6 : 1,
+                    border: `1px solid ${BRAND_LINE}`,
+                    filter: "drop-shadow(0 20px 35px rgba(0,0,0,0.45))",
                   }}
                 >
-                  {s.d}
-                </p>
+                  <img
+                    src={imgJornadaEnsacolando}
+                    alt="Cliente ensacolando o produto direto no carrinho"
+                    className="w-full h-full object-cover aspect-[3/4]"
+                  />
+                </div>
               </div>
-            );
-          })}
+            </div>
+          </div>
+        </div>
+
+        {/* ---------- Passo 3 — Físico (esquerda) x Digital (direita) ---------- */}
+        <div className="mt-20 sm:mt-24">
+          <div data-reveal className="mb-8">
+            <span
+              className="inline-flex items-center justify-center w-10 h-10 rounded-full text-base font-extrabold mb-4"
+              style={{ background: BRAND, color: "#FFFFFF", boxShadow: `0 6px 18px -4px rgba(30,82,168,0.7)` }}
+            >
+              3
+            </span>
+            <h3 className="text-2xl sm:text-3xl 2xl:text-4xl font-bold" style={{ color: INK }}>
+              Passo 3: A Prova Real — O Checkout
+            </h3>
+            <p className="mt-3 max-w-2xl text-base sm:text-lg 2xl:text-xl leading-relaxed" style={{ color: MUTED }}>
+              Assista à fluidez do sistema em ação. O cliente chega ao
+              caixa apenas para auditoria e pagamento.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-start">
+            {/* Físico */}
+            <div data-reveal className="order-1">
+              <span
+                className="inline-block text-xs font-bold tracking-widest uppercase mb-3"
+                style={{ color: MUTED }}
+              >
+                No caixa
+              </span>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-start">
+                <VideoEmbed
+                  src={VIDEO_CHECKOUT_HORIZONTAL_URL}
+                  aspectClass="aspect-video"
+                  label="Vídeo horizontal — 16:9"
+                  caption="Checkout completo, visão de tela"
+                />
+                <div className="mx-auto w-full max-w-[220px]">
+                  <VideoEmbed
+                    src={VIDEO_CHECKOUT_VERTICAL_URL}
+                    aspectClass="aspect-[9/16]"
+                    label="Vídeo vertical — 9:16"
+                    caption="Gravação no celular do cliente"
+                  />
+                </div>
+              </div>
+            </div>
+            {/* Digital */}
+            <div data-reveal data-reveal-delay={120} className="order-2">
+              <span
+                className="inline-block text-xs font-bold tracking-widest uppercase mb-3"
+                style={{ color: MUTED }}
+              >
+                Na tela do celular
+              </span>
+              <div className="grid grid-cols-2 gap-4 sm:gap-5 max-w-sm mx-auto lg:mx-0">
+                <ScreenMini idx={5} hoveredScreen={hoveredScreen} setHoveredScreen={setHoveredScreen} />
+                <ScreenMini idx={6} hoveredScreen={hoveredScreen} setHoveredScreen={setHoveredScreen} />
+              </div>
+            </div>
+          </div>
         </div>
       </Section>
 
@@ -1135,145 +1319,6 @@ export default function ViaExpressa() {
             <p className="mt-4 text-sm sm:text-lg 2xl:text-xl font-semibold leading-snug text-white opacity-95">
               destravados em capacidade de faturamento por operador, por dia.
             </p>
-          </div>
-        </div>
-      </Section>
-
-      {/* ============ 6.77. A JORNADA NA PRÁTICA ============ */}
-      <Section id="jornada-na-pratica">
-        <Eyebrow>Prova em loja</Eyebrow>
-        <H2>A Jornada na Prática</H2>
-        <Lead className="mt-6 max-w-3xl">
-          Veja como a Via Expressa transforma a experiência de compra, passo
-          a passo, no chão de loja.
-        </Lead>
-
-        {/* Passo 1 — imagem à esquerda, texto à direita */}
-        <div className="mt-16 sm:mt-20 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center">
-          <div data-reveal className="order-1">
-            <div
-              className="rounded-2xl overflow-hidden"
-              style={{ border: `1px solid ${BRAND_LINE}`, boxShadow: `0 0 50px ${BRAND_SOFT}` }}
-            >
-              <img
-                src={imgJornadaEntrada}
-                alt="Cliente apontando a câmera do celular para o QR Code exibido na TV do salão de vendas"
-                className="w-full h-full object-cover aspect-[4/3]"
-              />
-            </div>
-          </div>
-          <div data-reveal data-reveal-delay={120} className="order-2">
-            <span
-              className="inline-flex items-center justify-center w-10 h-10 rounded-full text-base font-extrabold mb-4"
-              style={{ background: BRAND, color: "#FFFFFF", boxShadow: `0 6px 18px -4px rgba(30,82,168,0.7)` }}
-            >
-              1
-            </span>
-            <h3 className="text-2xl sm:text-3xl 2xl:text-4xl font-bold" style={{ color: INK }}>
-              Passo 1: Autonomia desde a Entrada
-            </h3>
-            <p className="mt-4 text-base sm:text-lg 2xl:text-xl leading-relaxed" style={{ color: MUTED }}>
-              O cliente pega o carrinho, escaneia o QR Code inicial e já
-              está pronto para começar. Sem catracas, sem cadastros
-              demorados.
-            </p>
-          </div>
-        </div>
-
-        {/* Passo 2 — texto à esquerda, galeria dupla à direita */}
-        <div className="mt-16 sm:mt-20 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center">
-          <div data-reveal className="order-2 lg:order-1">
-            <span
-              className="inline-flex items-center justify-center w-10 h-10 rounded-full text-base font-extrabold mb-4"
-              style={{ background: BRAND, color: "#FFFFFF", boxShadow: `0 6px 18px -4px rgba(30,82,168,0.7)` }}
-            >
-              2
-            </span>
-            <h3 className="text-2xl sm:text-3xl 2xl:text-4xl font-bold" style={{ color: INK }}>
-              Passo 2: Escaneou, Guardou
-            </h3>
-            <p className="mt-4 text-base sm:text-lg 2xl:text-xl leading-relaxed" style={{ color: MUTED }}>
-              No corredor, a mágica acontece. O cliente escaneia o código
-              de barras com a própria câmera e, no mesmo instante, já
-              acomoda o produto nas sacolas dentro do carrinho. O trabalho
-              braçal de balcão é eliminado durante a caminhada.
-            </p>
-          </div>
-          <div
-            data-reveal
-            data-reveal-delay={120}
-            className="order-1 lg:order-2 relative h-72 sm:h-96"
-          >
-            <div
-              className="absolute left-0 top-4 w-[62%] rounded-2xl overflow-hidden"
-              style={{
-                border: `1px solid ${BRAND_LINE}`,
-                filter: "drop-shadow(0 20px 35px rgba(0,0,0,0.45))",
-              }}
-            >
-              <img
-                src={imgJornadaEscaneando}
-                alt="Cliente escaneando produto com a câmera do celular"
-                className="w-full h-full object-cover aspect-[3/4]"
-              />
-            </div>
-            <div
-              className="absolute right-0 bottom-0 w-[62%] rounded-2xl overflow-hidden"
-              style={{
-                border: `1px solid ${BRAND_LINE}`,
-                filter: "drop-shadow(0 20px 35px rgba(0,0,0,0.45))",
-              }}
-            >
-              <img
-                src={imgJornadaEnsacolando}
-                alt="Cliente ensacolando o produto direto no carrinho"
-                className="w-full h-full object-cover aspect-[3/4]"
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* Passo 3 — o gran finale: checkout em 60 segundos, largura total */}
-        <div data-reveal className="mt-20 sm:mt-24 text-center">
-          <span
-            className="inline-flex items-center justify-center w-10 h-10 rounded-full text-base font-extrabold mb-4"
-            style={{ background: BRAND, color: "#FFFFFF", boxShadow: `0 6px 18px -4px rgba(30,82,168,0.7)` }}
-          >
-            3
-          </span>
-          <h3 className="text-2xl sm:text-3xl 2xl:text-4xl font-bold" style={{ color: INK }}>
-            Passo 3: A Prova Real — O Checkout
-          </h3>
-          <p
-            className="mt-3 max-w-2xl mx-auto text-base sm:text-lg 2xl:text-xl leading-relaxed"
-            style={{ color: MUTED }}
-          >
-            Assista à fluidez do sistema em ação. O cliente chega ao caixa
-            apenas para auditoria e pagamento.
-          </p>
-        </div>
-
-        <div className="mt-10 sm:mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-          {/* Vídeo 1 — horizontal, formato YouTube */}
-          <div data-reveal data-reveal-delay={80}>
-            <VideoEmbed
-              src={VIDEO_CHECKOUT_HORIZONTAL_URL}
-              aspectClass="aspect-video"
-              label="Vídeo horizontal — 16:9"
-              caption="Checkout completo, visão de tela"
-            />
-          </div>
-
-          {/* Vídeo 2 — vertical, formato celular */}
-          <div data-reveal data-reveal-delay={160} className="flex justify-center">
-            <div className="w-full max-w-[280px]">
-              <VideoEmbed
-                src={VIDEO_CHECKOUT_VERTICAL_URL}
-                aspectClass="aspect-[9/16]"
-                label="Vídeo vertical — 9:16"
-                caption="Gravação no celular do cliente"
-              />
-            </div>
           </div>
         </div>
       </Section>
