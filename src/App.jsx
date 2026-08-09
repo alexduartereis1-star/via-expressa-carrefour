@@ -1552,11 +1552,14 @@ export default function ViaExpressa() {
                 style={{ background: "#0B1220", border: `1px solid ${BRAND_LINE}` }}
               >
                 <div className="absolute left-1/2 -translate-x-1/2 top-2 w-16 h-4 rounded-full" style={{ background: "#000" }} />
-                <div className="rounded-[22px] overflow-hidden aspect-[9/16]">
+                <div
+                  className="rounded-[22px] overflow-hidden aspect-[9/16] p-3 flex items-center justify-center"
+                  style={{ background: "#0F172A" }}
+                >
                   <img
                     src={imgRoadmapRajada}
                     alt="Rajada de códigos de barras exibida na tela do app, um item por vez"
-                    className="w-full h-full object-cover"
+                    className="w-full h-auto object-contain"
                   />
                 </div>
               </div>
