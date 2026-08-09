@@ -202,13 +202,13 @@ const SETE_TELAS = [
     d: "Catálogo da loja já carregado, carrinho vazio pronto pra começar.",
   },
   {
-    n: "04",
+    n: "03",
     img: telaCamera,
     t: "Aponta a câmera",
     d: "Lê o código de barras direto na gôndola, sem leitor físico.",
   },
   {
-    n: "05",
+    n: "04",
     img: telaCarrinho,
     t: "Carrinho em tempo real",
     d: "Cada item somado, com preço e subtotal atualizados na hora.",
@@ -952,8 +952,7 @@ export default function ViaExpressa() {
               >
                 Na tela do celular
               </span>
-              <div className="grid grid-cols-3 gap-3 sm:gap-4">
-                <ScreenMini idx={2} hoveredScreen={hoveredScreen} setHoveredScreen={setHoveredScreen} />
+              <div className="grid grid-cols-2 gap-4 sm:gap-5 max-w-sm mx-auto lg:mx-0">
                 <ScreenMini idx={3} hoveredScreen={hoveredScreen} setHoveredScreen={setHoveredScreen} />
                 <ScreenMini idx={4} hoveredScreen={hoveredScreen} setHoveredScreen={setHoveredScreen} />
               </div>
