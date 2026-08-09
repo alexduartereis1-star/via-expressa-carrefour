@@ -191,9 +191,9 @@ const SETE_TELAS = [
   },
   {
     n: "02",
-    img: telaAbrirApp,
-    t: "Abre na hora",
-    d: "Carregamento instantâneo, direto no navegador.",
+    img: telaProntoEscanear,
+    t: "Pronto para Escanear",
+    d: "Catálogo carregado instantaneamente. Carrinho vazio e pronto para a primeira leitura.",
   },
   {
     n: "03",
@@ -238,9 +238,9 @@ function ScreenMini({ idx, hoveredScreen, setHoveredScreen }) {
       onMouseLeave={() => setHoveredScreen(null)}
     >
       <div
-        className="relative w-full rounded-2xl overflow-hidden flex items-center justify-center"
+        className="relative w-full rounded-[2rem] border overflow-hidden flex items-center justify-center"
         style={{
-          border: `1px solid ${BRAND_LINE}`,
+          borderColor: BRAND_LINE,
           aspectRatio: "9 / 16",
           background: "#0B1220",
           transition:
@@ -304,7 +304,7 @@ function Card({ children, className = "", delay, padded = true }) {
 
 import carrefourLogo from "./assets/carrefour-logo.png";
 import telaQrCode from "./assets/app-screens/passo1-qrcode.png";
-import telaAbrirApp from "./assets/app-screens/passo2-abrir-app.png";
+import telaProntoEscanear from "./assets/jornada-na-pratica/passo1-pronto-escanear.jpg";
 import telaInicial from "./assets/app-screens/passo3-tela-inicial.png";
 import telaCamera from "./assets/app-screens/passo4-camera.png";
 import telaCarrinho from "./assets/app-screens/passo5-carrinho.png";
