@@ -697,7 +697,7 @@ export default function ViaExpressa() {
           >
             Entregamos um fluxo{" "}
             <span style={{ color: BRAND }}>Fast Track</span> — o cliente passa{" "}
-            <span style={{ color: BRAND }}>20 itens em 1 minuto</span> — porque
+            <span style={{ color: BRAND }}>20 itens em 90 segundos</span> — porque
             nossa tecnologia é{" "}
             <span style={{ color: BRAND }}>Fricção Zero</span>: sem download de
             app, sem cadastro, sem descarregar o carrinho.
@@ -809,7 +809,7 @@ export default function ViaExpressa() {
       <Section id="fluxo">
         <Eyebrow>O novo fluxo</Eyebrow>
         <H2>
-          20 itens em <span style={{ color: BRAND }}>60 segundos.</span>
+          20 itens em <span style={{ color: BRAND }}>90 segundos.</span>
         </H2>
 
         <div className="mt-10 sm:mt-16 grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-8">
@@ -1184,7 +1184,7 @@ export default function ViaExpressa() {
                 {[
                   { icon: <ShoppingCart size={28} />, t: "Até 20 itens" },
                   { icon: <ShoppingBag size={28} />, t: "Ensacole no corredor" },
-                  { icon: <Timer size={28} />, t: "Saia em 60s" },
+                  { icon: <Timer size={28} />, t: "Saia em 90s" },
                 ].map((r) => (
                   <div key={r.t} className="flex items-center gap-3">
                     <span style={{ color: BRAND, flexShrink: 0 }}>{r.icon}</span>
@@ -1748,7 +1748,8 @@ export default function ViaExpressa() {
             O cliente que compra a nossa picanha e o nosso vinho não tolera
             mais esperar 15 minutos na frente de caixa. Se não dermos essa
             via expressa pra ele, o concorrente da outra esquina vai dar. E
-            quando ele descobrir que pode resolver a compra em 1 minuto lá,
+            quando ele descobrir que pode resolver a compra em 90 segundos
+            lá,
             não volta mais aqui.
           </p>
 
