@@ -220,6 +220,7 @@ import imgPilar3CarrinhoCheio from "./assets/reacao-em-cadeia/pilar3-carrinho-ch
 import imgJornadaEntrada from "./assets/jornada-na-pratica/1786108270790.jpeg";
 import imgJornadaEscaneando from "./assets/jornada-na-pratica/passo2a-escaneando.jpg";
 import imgJornadaEnsacolando from "./assets/jornada-na-pratica/passo2b-ensacolando.jpg";
+import imgRoadmapRajada from "./assets/roadmap-evolucao/rajada-codigos.jpg";
 
 function CarrefourMark({ size = 56 }) {
   return (
@@ -1451,6 +1452,160 @@ export default function ViaExpressa() {
               </p>
             </Card>
           ))}
+        </div>
+      </Section>
+
+      {/* ============ 6.95. ROADMAP DE EVOLUÇÃO ============ */}
+      <Section id="roadmap-evolucao">
+        <Eyebrow>Escalabilidade</Eyebrow>
+        <H2>
+          Roadmap de Evolução: <span style={{ color: BRAND }}>O Checkout em 3 Segundos</span>
+        </H2>
+        <Lead className="mt-6 max-w-3xl">
+          O modelo atual já revoluciona a loja sem depender da TI. Mas veja o
+          que acontece quando integrarmos a Via Expressa nativamente ao PDV
+          do Carrefour.
+        </Lead>
+
+        <div className="mt-12 sm:mt-16 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-stretch">
+          {/* CARD 1 — Cenário Atual (MVP Independente) */}
+          <Card className="flex flex-col">
+            <span
+              className="inline-block w-fit text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-6"
+              style={{ background: "rgba(148,163,184,0.12)", color: MUTED, border: "1px solid rgba(148,163,184,0.25)" }}
+            >
+              Hoje — MVP independente
+            </span>
+
+            <h3 className="text-xl sm:text-2xl 2xl:text-3xl font-bold" style={{ color: INK }}>
+              Rajada de Códigos
+            </h3>
+            <p className="text-sm sm:text-base mt-1" style={{ color: MUTED }}>
+              Sem integração necessária
+            </p>
+
+            <div className="mt-6 flex items-baseline gap-2">
+              <span className="text-4xl sm:text-5xl font-extrabold" style={{ color: INK }}>
+                60–90
+              </span>
+              <span className="text-base sm:text-lg" style={{ color: MUTED }}>
+                segundos no caixa
+              </span>
+            </div>
+
+            <p className="mt-5 text-sm sm:text-base leading-relaxed" style={{ color: MUTED }}>
+              Hoje, o app exibe os códigos de barras em sequência na tela. O
+              operador bipa item por item rapidamente. Funciona em qualquer
+              loja, hoje, sem mexer em uma linha de código do sistema
+              legado.
+            </p>
+
+            {/* mockup de celular com a rajada de códigos real */}
+            <div className="mt-8 flex justify-center">
+              <div
+                className="relative w-[220px] rounded-[32px] p-2"
+                style={{ background: "#0B1220", border: `1px solid ${BRAND_LINE}` }}
+              >
+                <div className="absolute left-1/2 -translate-x-1/2 top-2 w-16 h-4 rounded-full" style={{ background: "#000" }} />
+                <div className="rounded-[22px] overflow-hidden aspect-[9/16]">
+                  <img
+                    src={imgRoadmapRajada}
+                    alt="Rajada de códigos de barras exibida na tela do app, um item por vez"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+          </Card>
+
+          {/* CARD 2 — Futuro Integrado (Aprovado pela TI) */}
+          <div
+            data-reveal
+            data-reveal-delay={120}
+            className="relative rounded-2xl p-6 sm:p-8 2xl:p-10 h-full flex flex-col overflow-hidden"
+            style={{
+              background: "linear-gradient(165deg, rgba(16,185,129,0.10), rgba(30,82,168,0.10))",
+              border: "1px solid rgba(52,211,153,0.4)",
+              boxShadow: "0 0 60px rgba(52,211,153,0.15)",
+            }}
+          >
+            {/* glow ambiente de fundo */}
+            <div
+              className="pointer-events-none absolute -top-24 -right-24 w-72 h-72 rounded-full"
+              style={{ background: "radial-gradient(circle, rgba(52,211,153,0.35), transparent 70%)", filter: "blur(10px)" }}
+            />
+
+            <span
+              className="relative inline-flex items-center gap-2 w-fit text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-6"
+              style={{ background: "rgba(52,211,153,0.15)", color: "#34D399", border: "1px solid rgba(52,211,153,0.4)" }}
+            >
+              <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "#34D399" }} />
+              Futuro — Aprovado pela TI
+            </span>
+
+            <h3 className="relative text-xl sm:text-2xl 2xl:text-3xl font-bold" style={{ color: INK }}>
+              O QR Code Master
+            </h3>
+            <p className="relative text-sm sm:text-base mt-1" style={{ color: MUTED }}>
+              Integração PDV
+            </p>
+
+            <div className="relative mt-6 flex items-baseline gap-2">
+              <span
+                className="text-4xl sm:text-5xl font-extrabold"
+                style={{ color: "#34D399", textShadow: "0 0 30px rgba(52,211,153,0.6)" }}
+              >
+                3–5
+              </span>
+              <span className="text-base sm:text-lg" style={{ color: MUTED }}>
+                segundos no caixa
+              </span>
+            </div>
+
+            <p className="relative mt-5 text-sm sm:text-base leading-relaxed" style={{ color: MUTED }}>
+              O cliente finaliza a compra e o app gera um único QR Code
+              contendo todo o carrinho. O operador faz apenas UM bip. A
+              lista inteira de produtos desce automaticamente para a tela
+              do caixa. Fim absoluto das filas.
+            </p>
+
+            {/* mockup de celular — simulação em CSS/Tailwind do QR Code master */}
+            <div className="relative mt-8 flex justify-center">
+              <div
+                className="relative w-[220px] rounded-[32px] p-2"
+                style={{ background: "#050810", border: "1px solid rgba(52,211,153,0.45)" }}
+              >
+                <div className="absolute left-1/2 -translate-x-1/2 top-2 w-16 h-4 rounded-full" style={{ background: "#000" }} />
+                <div
+                  className="relative rounded-[22px] overflow-hidden aspect-[9/16] flex flex-col items-center justify-between py-6 px-4"
+                  style={{ background: "#0A0F1C" }}
+                >
+                  <span className="text-[11px] font-bold tracking-widest uppercase" style={{ color: "#94A3B8" }}>
+                    Via Expressa
+                  </span>
+
+                  <div className="relative flex items-center justify-center">
+                    <div
+                      className="absolute w-28 h-28 rounded-full animate-pulse"
+                      style={{ background: "radial-gradient(circle, rgba(52,211,153,0.55), transparent 70%)", filter: "blur(6px)" }}
+                    />
+                    <div className="relative w-20 h-20 rounded-lg overflow-hidden" style={{ boxShadow: "0 0 25px rgba(52,211,153,0.7)" }}>
+                      <QrCode viewBoxSize={160} />
+                    </div>
+                  </div>
+
+                  <div className="text-center">
+                    <CheckCircle2 size={16} className="inline-block mb-1" style={{ color: "#34D399" }} />
+                    <p className="text-[11px] font-semibold leading-tight" style={{ color: "#34D399" }}>
+                      Carrinho transferido
+                      <br />
+                      com sucesso
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </Section>
 
