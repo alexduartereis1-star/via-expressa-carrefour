@@ -1832,6 +1832,121 @@ export default function ViaExpressa() {
               <Camera size={24} />
               checkout-rapido-hiper.vercel.app
             </div>
+
+            {/* Formulário de contato — envia para o Gmail via Formspree */}
+            <div
+              data-reveal
+              className="mt-10 rounded-2xl p-6 sm:p-8 2xl:p-10"
+              style={{
+                background: "rgba(255,255,255,0.03)",
+                border: "1px solid rgba(255,255,255,0.08)",
+                backdropFilter: "blur(6px)",
+              }}
+            >
+              <h3
+                className="text-lg sm:text-xl 2xl:text-2xl font-bold"
+                style={{ color: INK }}
+              >
+                Quero saber mais
+              </h3>
+              <p
+                className="mt-2 text-sm sm:text-base 2xl:text-lg leading-relaxed"
+                style={{ color: MUTED }}
+              >
+                Deixe seu contato e a gente avisa quando o piloto chegar na
+                sua loja.
+              </p>
+
+              <form
+                action="https://formspree.io/f/mnpadqzj"
+                method="POST"
+                className="mt-6 space-y-4"
+              >
+                <div>
+                  <label
+                    htmlFor="via-expressa-nome"
+                    className="block text-xs sm:text-sm font-semibold uppercase tracking-wide mb-1.5"
+                    style={{ color: MUTED }}
+                  >
+                    Nome
+                  </label>
+                  <input
+                    id="via-expressa-nome"
+                    type="text"
+                    name="nome"
+                    required
+                    placeholder="Seu nome completo"
+                    className="w-full rounded-lg px-4 py-3 text-sm sm:text-base outline-none transition-colors"
+                    style={{
+                      background: "#1a2332",
+                      border: `1px solid ${BRAND_LINE}`,
+                      color: INK,
+                    }}
+                  />
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="via-expressa-telefone"
+                    className="block text-xs sm:text-sm font-semibold uppercase tracking-wide mb-1.5"
+                    style={{ color: MUTED }}
+                  >
+                    Telefone
+                  </label>
+                  <input
+                    id="via-expressa-telefone"
+                    type="tel"
+                    name="telefone"
+                    required
+                    placeholder="(81) 90000-0000"
+                    className="w-full rounded-lg px-4 py-3 text-sm sm:text-base outline-none transition-colors"
+                    style={{
+                      background: "#1a2332",
+                      border: `1px solid ${BRAND_LINE}`,
+                      color: INK,
+                    }}
+                  />
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="via-expressa-email"
+                    className="block text-xs sm:text-sm font-semibold uppercase tracking-wide mb-1.5"
+                    style={{ color: MUTED }}
+                  >
+                    E-mail
+                  </label>
+                  <input
+                    id="via-expressa-email"
+                    type="email"
+                    name="email"
+                    required
+                    placeholder="voce@email.com"
+                    className="w-full rounded-lg px-4 py-3 text-sm sm:text-base outline-none transition-colors"
+                    style={{
+                      background: "#1a2332",
+                      border: `1px solid ${BRAND_LINE}`,
+                      color: INK,
+                    }}
+                  />
+                </div>
+
+                {/* assunto que aparece no e-mail recebido no Gmail */}
+                <input
+                  type="hidden"
+                  name="_subject"
+                  value="Novo contato — Via Expressa"
+                />
+
+                <button
+                  type="submit"
+                  className="w-full rounded-xl font-bold text-sm sm:text-base py-3 sm:py-4 transition-transform hover:scale-[1.02] focus:outline-none focus:ring-4"
+                  style={{ background: BRAND, color: "#FFFFFF" }}
+                >
+                  Quero ser avisado
+                </button>
+              </form>
+            </div>
           </div>
         </div>
 
