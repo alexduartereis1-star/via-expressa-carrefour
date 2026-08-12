@@ -323,6 +323,7 @@ import imgRoadmapRajada from "./assets/roadmap-evolucao/rajada-codigos.jpg";
 import imgClienteFogeCadastro from "./assets/desafio-friccao/image_7389fd.png";
 import imgLojaSolucaoSemAtrito from "./assets/desafio-friccao/image_73731a.png";
 import imgFriccaoZero from "./assets/desafio-friccao/image_731cf8.png";
+import imgEtiquetaBalanca from "./assets/arquitetura/image_722cbc.png";
 
 function CarrefourMark({ size = 56 }) {
   return (
@@ -831,6 +832,7 @@ export default function ViaExpressa() {
       {/* ============ 3. ARQUITETURA LOGÍSTICA ============ */}
       <Section id="arquitetura">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          {/* Coluna esquerda — textos + card */}
           <div>
             <Eyebrow>Arquitetura</Eyebrow>
             <H2>
@@ -842,33 +844,54 @@ export default function ViaExpressa() {
               etiqueta da balança durante a compra. No momento do pagamento, o
               sistema consolida tudo e gera o código longo.
             </Lead>
+
+            <div
+              data-reveal
+              className="mt-8 rounded-2xl p-7 sm:p-10 2xl:p-14"
+              style={{ background: BRAND_SOFT, border: `1px solid ${BRAND_LINE}` }}
+            >
+              <Layers size={40} style={{ color: BRAND }} />
+              <p className="mt-6 text-xl sm:text-2xl lg:text-3xl 2xl:text-4xl font-bold leading-snug">
+                O seu PDV físico lê a tela do celular como se estivesse lendo a
+                própria bandeja.
+              </p>
+              <div className="mt-8 space-y-4">
+                {[
+                  "Zero integração sistêmica complexa",
+                  "A auditoria visual permanece ativa",
+                  "O ERP e o fiscal continuam exatamente como estão",
+                ].map((t) => (
+                  <div key={t} className="flex items-start gap-3">
+                    <CheckCircle2
+                      size={22}
+                      style={{ color: BRAND, flexShrink: 0, marginTop: 2 }}
+                    />
+                    <span className="text-sm sm:text-lg 2xl:text-2xl">{t}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
 
-          <div
-            data-reveal
-            className="rounded-2xl p-7 sm:p-10 2xl:p-14"
-            style={{ background: BRAND_SOFT, border: `1px solid ${BRAND_LINE}` }}
-          >
-            <Layers size={40} style={{ color: BRAND }} />
-            <p className="mt-6 text-xl sm:text-2xl lg:text-3xl 2xl:text-4xl font-bold leading-snug">
-              O seu PDV físico lê a tela do celular como se estivesse lendo a
-              própria bandeja.
-            </p>
-            <div className="mt-8 space-y-4">
-              {[
-                "Zero integração sistêmica complexa",
-                "A auditoria visual permanece ativa",
-                "O ERP e o fiscal continuam exatamente como estão",
-              ].map((t) => (
-                <div key={t} className="flex items-start gap-3">
-                  <CheckCircle2
-                    size={22}
-                    style={{ color: BRAND, flexShrink: 0, marginTop: 2 }}
-                  />
-                  <span className="text-sm sm:text-lg 2xl:text-2xl">{t}</span>
-                </div>
-              ))}
+          {/* Coluna direita — prova técnica (imagem da etiqueta) */}
+          <div data-reveal data-reveal-delay={150} className="flex flex-col items-center">
+            <div
+              className="w-full max-w-md rounded-2xl sm:rounded-3xl p-4 sm:p-6 transition-all duration-500 hover:scale-105"
+              style={{
+                background: "#FFFFFF",
+                boxShadow: "0 0 40px rgba(30,82,168,0.3)",
+              }}
+            >
+              <img
+                src={imgEtiquetaBalanca}
+                alt="Etiqueta de balança decodificada — EAN, PLU e peso variável"
+                className="w-full h-auto rounded-xl"
+              />
             </div>
+            <p className="mt-4 text-sm text-center" style={{ color: "#94A3B8" }}>
+              Decodificação nativa: O motor do app extrai EAN, PLU e Variáveis
+              em milissegundos.
+            </p>
           </div>
         </div>
       </Section>
