@@ -535,7 +535,7 @@ export default function ViaExpressa() {
         </div>
       </Section>
 
-      {/* ============ 1.4. A REALIDADE DO CHÃO DE LOJA ============ */}
+      {/* ============ 1.4. O CUSTO OCULTO DO MODELO TRADICIONAL (seção unificada — 6 cards) ============ */}
       <Section id="realidade-chao-loja">
         <Eyebrow>O ponto de partida</Eyebrow>
         <H2>O Custo Oculto do Modelo Tradicional</H2>
@@ -545,6 +545,7 @@ export default function ViaExpressa() {
         </Lead>
 
         <div className="mt-10 sm:mt-16 grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-8">
+          {/* --- primeiros 3 cards (estilo com imagem + texto abaixo) --- */}
           {[
             {
               img: imgAbandono,
@@ -605,48 +606,8 @@ export default function ViaExpressa() {
               </p>
             </div>
           ))}
-        </div>
-      </Section>
 
-      {/* ============ 6.75. A REAÇÃO EM CADEIA NO SALÃO DE VENDAS ============ */}
-      <Section id="reacao-em-cadeia">
-        <Eyebrow>Além da fila</Eyebrow>
-        <H2>
-          Além do Caixa: <span style={{ color: BRAND }}>O Impacto na Loja Inteira</span>
-        </H2>
-        <Lead className="mt-6 max-w-3xl">
-          Como o escoamento rápido protege o abastecimento, zera o
-          constrangimento e estanca as perdas.
-        </Lead>
-
-        {/* trilho de conexão — representa a reação em cadeia entre os 3 pilares */}
-        <div
-          data-reveal
-          className="hidden lg:flex items-center justify-center gap-3 mt-14 mb-2 px-20"
-        >
-          <span
-            className="flex-1 h-px"
-            style={{ background: `linear-gradient(90deg, transparent, ${BRAND}, transparent)` }}
-          />
-          {[0, 1, 2].map((i) => (
-            <span key={i} className="relative flex h-2.5 w-2.5">
-              <span
-                className="absolute inline-flex h-full w-full rounded-full opacity-75 animate-ping"
-                style={{ background: BRAND, animationDelay: `${i * 0.4}s`, animationDuration: "2s" }}
-              />
-              <span
-                className="relative inline-flex rounded-full h-2.5 w-2.5"
-                style={{ background: BRAND }}
-              />
-            </span>
-          ))}
-          <span
-            className="flex-1 h-px"
-            style={{ background: `linear-gradient(90deg, transparent, ${BRAND}, transparent)` }}
-          />
-        </div>
-
-        <div className="mt-6 sm:mt-8 grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
+          {/* --- próximos 3 cards (estilo Card com ícone + imagem no topo) --- */}
           {[
             {
               icon: Boxes,
