@@ -320,6 +320,9 @@ import imgJornadaEntrada from "./assets/jornada-na-pratica/1786108270790.jpeg";
 import imgJornadaEscaneando from "./assets/jornada-na-pratica/passo2a-escaneando.jpg";
 import imgJornadaEnsacolando from "./assets/jornada-na-pratica/passo2b-ensacolando.jpg";
 import imgRoadmapRajada from "./assets/roadmap-evolucao/rajada-codigos.jpg";
+import imgClienteFogeCadastro from "./assets/desafio-friccao/image_7389fd.png";
+import imgLojaSolucaoSemAtrito from "./assets/desafio-friccao/image_73731a.png";
+import imgFriccaoZero from "./assets/desafio-friccao/image_731cf8.png";
 
 function CarrefourMark({ size = 56 }) {
   return (
@@ -713,47 +716,114 @@ export default function ViaExpressa() {
         </H2>
 
         <div className="mt-10 sm:mt-16 grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-8">
-          <Card>
-            <Smartphone size={34} style={{ color: BRAND }} />
-            <h3 className="mt-6 text-xl sm:text-2xl 2xl:text-3xl font-bold">
-              O cliente foge de cadastros
-            </h3>
-            <p
-              className="mt-3 text-sm sm:text-base 2xl:text-xl leading-relaxed"
-              style={{ color: MUTED }}
-            >
-              Baixar aplicativo, criar conta, aceitar termos. Cada etapa derruba
-              uma parte da adesão antes mesmo da primeira compra.
-            </p>
-          </Card>
-
-          <Card>
-            <Store size={34} style={{ color: BRAND }} />
-            <h3 className="mt-6 text-xl sm:text-2xl 2xl:text-3xl font-bold">
-              A loja precisa de solução sem atrito
-            </h3>
-            <p
-              className="mt-3 text-sm sm:text-base 2xl:text-xl leading-relaxed"
-              style={{ color: MUTED }}
-            >
-              Projetos que exigem troca de PDV, integração sistêmica e obra civil
-              morrem no orçamento antes de chegar ao chão de loja.
-            </p>
-          </Card>
-
+          {/* Card 1 — O cliente foge de cadastros */}
           <div
             data-reveal
-            className="rounded-2xl p-6 sm:p-8 2xl:p-10 h-full"
-            style={{ background: BRAND, color: "#FFFFFF" }}
+            className="group rounded-2xl overflow-hidden h-full"
+            style={{
+              background: "rgba(255,255,255,0.03)",
+              border: "1px solid rgba(255,255,255,0.08)",
+            }}
           >
-            <Zap size={34} />
-            <h3 className="mt-6 text-xl sm:text-2xl 2xl:text-3xl font-bold">
-              Nossa solução: Fricção Zero
-            </h3>
-            <p className="mt-3 text-sm sm:text-base 2xl:text-xl leading-relaxed opacity-95">
-              100% web. O cliente aponta a câmera e já está operando. Sem
-              download, sem cadastro, sem catraca.
-            </p>
+            <div className="relative w-full h-48 overflow-hidden">
+              <img
+                src={imgClienteFogeCadastro}
+                alt="O cliente foge de cadastros"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div
+                className="absolute inset-0"
+                style={{
+                  background:
+                    "linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(11,18,32,0.92) 100%)",
+                }}
+              />
+            </div>
+            <div className="p-6 sm:p-8 2xl:p-10">
+              <h3 className="text-xl sm:text-2xl 2xl:text-3xl font-bold" style={{ color: INK }}>
+                O cliente foge de cadastros
+              </h3>
+              <p
+                className="mt-3 text-sm sm:text-base 2xl:text-xl leading-relaxed"
+                style={{ color: MUTED }}
+              >
+                Baixar aplicativo, criar conta, aceitar termos. Cada etapa derruba
+                uma parte da adesão antes mesmo da primeira compra.
+              </p>
+            </div>
+          </div>
+
+          {/* Card 2 — A loja precisa de solução sem atrito */}
+          <div
+            data-reveal
+            data-reveal-delay={120}
+            className="group rounded-2xl overflow-hidden h-full"
+            style={{
+              background: "rgba(255,255,255,0.03)",
+              border: "1px solid rgba(255,255,255,0.08)",
+            }}
+          >
+            <div className="relative w-full h-48 overflow-hidden">
+              <img
+                src={imgLojaSolucaoSemAtrito}
+                alt="A loja precisa de solução sem atrito"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div
+                className="absolute inset-0"
+                style={{
+                  background:
+                    "linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(11,18,32,0.92) 100%)",
+                }}
+              />
+            </div>
+            <div className="p-6 sm:p-8 2xl:p-10">
+              <h3 className="text-xl sm:text-2xl 2xl:text-3xl font-bold" style={{ color: INK }}>
+                A loja precisa de solução sem atrito
+              </h3>
+              <p
+                className="mt-3 text-sm sm:text-base 2xl:text-xl leading-relaxed"
+                style={{ color: MUTED }}
+              >
+                Projetos que exigem troca de PDV, integração sistêmica e obra civil
+                morrem no orçamento antes de chegar ao chão de loja.
+              </p>
+            </div>
+          </div>
+
+          {/* Card 3 — Nossa solução: Fricção Zero (destaque azul) */}
+          <div
+            data-reveal
+            data-reveal-delay={240}
+            className="group rounded-2xl overflow-hidden h-full"
+            style={{
+              background: BRAND,
+              boxShadow: `0 0 50px ${BRAND_SOFT}`,
+            }}
+          >
+            <div className="relative w-full h-48 overflow-hidden">
+              <img
+                src={imgFriccaoZero}
+                alt="Nossa solução: Fricção Zero"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div
+                className="absolute inset-0"
+                style={{
+                  background:
+                    "linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(30,82,168,0.92) 100%)",
+                }}
+              />
+            </div>
+            <div className="p-6 sm:p-8 2xl:p-10" style={{ color: "#FFFFFF" }}>
+              <h3 className="text-xl sm:text-2xl 2xl:text-3xl font-bold">
+                Nossa solução: Fricção Zero
+              </h3>
+              <p className="mt-3 text-sm sm:text-base 2xl:text-xl leading-relaxed opacity-95">
+                100% web. O cliente aponta a câmera e já está operando. Sem
+                download, sem cadastro, sem catraca.
+              </p>
+            </div>
           </div>
         </div>
       </Section>
