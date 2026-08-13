@@ -896,13 +896,18 @@ export default function ViaExpressa() {
         </div>
       </Section>
 
-      {/* ============ 4. O NOVO FLUXO ============ */}
-      <Section id="fluxo">
-        <Eyebrow>O novo fluxo</Eyebrow>
+      {/* ============ 4.5. A JORNADA INTEGRADA (FÍSICO + DIGITAL) ============ */}
+      <Section id="jornada-integrada">
+        <Eyebrow>Físico + digital</Eyebrow>
         <H2>
-          20 itens em <span style={{ color: BRAND }}>90 segundos.</span>
+          A Jornada Integrada <span style={{ color: BRAND }}>(Físico + Digital)</span>
         </H2>
+        <Lead className="mt-6 max-w-3xl">
+          Veja a sincronia perfeita entre o que o cliente faz no chão de
+          loja e o que acontece na tela do celular, passo a passo.
+        </Lead>
 
+        {/* ---------- Resumo: 20 itens em 90 segundos ---------- */}
         <div className="mt-10 sm:mt-16 grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-8">
           {[
             {
@@ -946,18 +951,6 @@ export default function ViaExpressa() {
             </Card>
           ))}
         </div>
-      </Section>
-
-      {/* ============ 4.5. A JORNADA INTEGRADA (FÍSICO + DIGITAL) ============ */}
-      <Section id="jornada-integrada">
-        <Eyebrow>Físico + digital</Eyebrow>
-        <H2>
-          A Jornada Integrada <span style={{ color: BRAND }}>(Físico + Digital)</span>
-        </H2>
-        <Lead className="mt-6 max-w-3xl">
-          Veja a sincronia perfeita entre o que o cliente faz no chão de
-          loja e o que acontece na tela do celular, passo a passo.
-        </Lead>
 
         {/* ---------- Passo 1 — Físico (esquerda) x Digital (direita) ---------- */}
         <div className="mt-16 sm:mt-20">
