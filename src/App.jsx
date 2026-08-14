@@ -682,27 +682,36 @@ export default function ViaExpressa() {
       </Section>
 
       {/* ============ 1.5. MANIFESTO — FAST TRACK / FRICÇÃO ZERO ============ */}
-      <Section id="manifesto-fast-track" className="py-16 sm:py-24 lg:py-32">
+      <Section
+        id="manifesto-fast-track"
+        className="min-h-[70vh] flex flex-col justify-center bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-800 via-[#0A0E18] to-[#0A0E18]"
+      >
         <div
           data-reveal
-          className="relative max-w-5xl mx-auto text-center px-4 sm:px-8"
+          className="relative max-w-5xl mx-auto text-center px-4 sm:px-8 space-y-8"
         >
-          <span
-            className="block text-6xl sm:text-8xl lg:text-9xl font-black leading-none select-none"
-            style={{ color: BRAND_SOFT }}
-          >
-            "
-          </span>
-          <p
-            className="-mt-8 sm:-mt-12 text-2xl sm:text-4xl lg:text-5xl 2xl:text-6xl font-extrabold leading-tight tracking-tight"
-            style={{ color: INK }}
-          >
+          {/* Linha 1 — A Promessa */}
+          <p className="text-3xl md:text-5xl font-bold text-white">
             Entregamos um fluxo{" "}
-            <span style={{ color: BRAND }}>Fast Track</span> — o cliente passa{" "}
-            <span style={{ color: BRAND }}>20 itens em 90 segundos</span> — porque
-            nossa tecnologia é{" "}
-            <span style={{ color: BRAND }}>Fricção Zero</span>: sem download de
-            app, sem cadastro, sem descarregar o carrinho.
+            <span style={{ color: BRAND }}>Fast Track</span>
+          </p>
+
+          {/* Linha 2 — O Choque de Realidade (GIGANTE) */}
+          <p
+            className="text-5xl md:text-7xl lg:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-[#1E52A8] leading-tight"
+          >
+            20 itens em 90 segundos.
+          </p>
+
+          {/* Linha 3 — O Porquê */}
+          <p
+            className="text-xl md:text-3xl font-medium leading-relaxed"
+            style={{ color: "#CBD5E1" }}
+          >
+            Porque nossa tecnologia é{" "}
+            <span className="text-white font-semibold">Fricção Zero</span>:
+            <br className="hidden md:block" />
+            sem download, sem cadastro, sem descarregar o carrinho.
           </p>
         </div>
       </Section>
