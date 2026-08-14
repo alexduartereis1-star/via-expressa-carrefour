@@ -1305,7 +1305,7 @@ export default function ViaExpressa() {
           intervalo, veja a diferença de capacidade de escoamento por
           operador.{" "}
           <span className="italic opacity-75">
-            (Base de cálculo: Ticket médio de R$ 195 para compras de até 20
+            (Base de cálculo: Ticket médio de R$ 132 para compras de até 20
             itens).
           </span>
         </Lead>
@@ -1377,7 +1377,7 @@ export default function ViaExpressa() {
                   Tradicional
                 </span>
                 <span className="text-lg sm:text-2xl 2xl:text-3xl font-extrabold">
-                  R$ 66.300<span style={{ color: MUTED, fontWeight: 400 }}>/dia</span>
+                  R$ 44.880<span style={{ color: MUTED, fontWeight: 400 }}>/dia</span>
                 </span>
               </div>
               <div
@@ -1394,7 +1394,7 @@ export default function ViaExpressa() {
                   className="text-lg sm:text-2xl 2xl:text-3xl font-extrabold"
                   style={{ color: BRAND }}
                 >
-                  R$ 198.900<span style={{ color: MUTED, fontWeight: 400 }}>/dia</span>
+                  R$ 134.640<span style={{ color: MUTED, fontWeight: 400 }}>/dia</span>
                 </span>
               </div>
             </div>
@@ -1406,10 +1406,15 @@ export default function ViaExpressa() {
             style={{ background: BRAND, boxShadow: `0 0 50px ${BRAND_SOFT}` }}
           >
             <span className="text-4xl sm:text-6xl 2xl:text-7xl font-extrabold leading-none text-white">
-              R$ 132.600
+              R$ 89.760
             </span>
             <p className="mt-4 text-sm sm:text-lg 2xl:text-xl font-semibold leading-snug text-white opacity-95">
               destravados em capacidade de faturamento por operador, por dia.
+            </p>
+            <p className="mt-3 text-sm sm:text-base italic text-white/80">
+              Isso equivale a uma capacidade de escoamento de aproximadamente
+              20% do faturamento médio diário da loja (R$ 450 mil)
+              concentrada em um único ponto de caixa.
             </p>
           </div>
         </div>
