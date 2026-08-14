@@ -324,6 +324,7 @@ import imgClienteFogeCadastro from "./assets/desafio-friccao/image_7389fd.png";
 import imgLojaSolucaoSemAtrito from "./assets/desafio-friccao/image_73731a.png";
 import imgFriccaoZero from "./assets/desafio-friccao/image_731cf8.png";
 import imgEtiquetaBalanca from "./assets/arquitetura/image_722cbc.png";
+import imgFastTrackPratica from "./assets/arquitetura/image_31d19f.jpg";
 
 function CarrefourMark({ size = 56 }) {
   return (
@@ -904,6 +905,33 @@ export default function ViaExpressa() {
           </div>
         </div>
       </Section>
+
+      {/* ============ 3.5. FAST TRACK NA PRÁTICA (bloco cinematográfico) ============ */}
+      <div className="mt-24 max-w-6xl mx-auto px-6 sm:px-10 lg:px-16">
+        <div
+          data-reveal
+          className="relative rounded-[2rem] overflow-hidden shadow-[0_20px_60px_rgba(30,82,168,0.3)]"
+        >
+          <img
+            src={imgFastTrackPratica}
+            alt="Operador lendo o carrinho do cliente na tela do celular — Fast Track na prática"
+            className="w-full h-auto lg:aspect-[21/9] object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0A0E18] via-[#0A0E18]/40 to-transparent" />
+          <div className="absolute bottom-0 left-0 p-8 md:p-12">
+            <span className="block text-blue-400 font-bold tracking-widest uppercase text-sm mb-3">
+              O Fast Track na prática
+            </span>
+            <h3 className="text-2xl md:text-4xl font-black text-white">
+              Um único bip. O carrinho inteiro transferido.
+            </h3>
+            <p className="text-slate-300 mt-2 max-w-2xl">
+              O operador lê a tela do cliente em segundos. Sem atrito, sem
+              retirar produtos da sacola e com auditoria visual completa.
+            </p>
+          </div>
+        </div>
+      </div>
 
       {/* ============ 4.5. A JORNADA INTEGRADA (FÍSICO + DIGITAL) ============ */}
       <Section id="jornada-integrada">
