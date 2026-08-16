@@ -500,8 +500,9 @@ export default function ViaExpressa() {
             className="mt-8 sm:mt-10 max-w-3xl 2xl:max-w-5xl text-base sm:text-xl lg:text-2xl 2xl:text-4xl leading-relaxed"
             style={{ color: MUTED }}
           >
-            Como transformar 1 operador na produtividade de 3, estancar a evasão
-            de clientes e eliminar o tempo de ensacolamento —{" "}
+            Como transformar 1 operador na produtividade de até 5, estancar a
+            evasão de clientes e eliminar o gargalo de ensacolamento no
+            balcão —{" "}
             <span className="font-semibold" style={{ color: INK }}>
               sem trocar o ERP da loja.
             </span>
