@@ -1448,6 +1448,64 @@ export default function ViaExpressa() {
         </div>
       </Section>
 
+      {/* ============ 6.75. O IMPACTO OCULTO — CUSTOS, RECEITA E ESG ============ */}
+      <div className="w-full bg-[#0A0E18] border-y border-emerald-500/20 shadow-[0_0_40px_rgba(16,185,129,0.05)] py-16">
+        <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-16">
+          <div data-reveal className="text-center">
+            <h2 className="text-3xl md:text-4xl font-black text-white">
+              O Impacto Oculto: Corte de Despesas, Nova Receita e Agenda ESG
+            </h2>
+            <p className="text-slate-300 mt-4 max-w-3xl mx-auto text-lg">
+              O modelo Fast Track migra o cliente para o reaproveitamento de
+              caixas de papelão da própria loja ou para a compra de sacolas
+              retornáveis, zerando o custo com plástico no PDV.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center mt-12">
+            <div data-reveal data-reveal-delay={0}>
+              <span className="block text-5xl font-black text-emerald-400">
+                105.000
+              </span>
+              <p className="text-sm text-slate-400 mt-2">
+                Sacolas plásticas eliminadas por mês em cada PDV operando o
+                Fast Track.
+              </p>
+            </div>
+
+            <div data-reveal data-reveal-delay={100}>
+              <span className="block text-5xl font-black text-emerald-400">
+                R$ 6.300
+              </span>
+              <p className="text-sm text-slate-400 mt-2">
+                De redução média mensal em despesas operacionais com
+                embalagens gratuitas (por caixa).
+              </p>
+            </div>
+
+            <div data-reveal data-reveal-delay={200}>
+              <span className="block text-5xl font-black text-white">
+                Upsell
+              </span>
+              <p className="text-sm text-slate-400 mt-2">
+                Conversão da despesa de plástico em nova linha de receita com
+                alta margem através da venda de sacolas retornáveis.
+              </p>
+            </div>
+
+            <div data-reveal data-reveal-delay={300}>
+              <span className="block text-5xl font-black text-emerald-400">
+                100% ESG
+              </span>
+              <p className="text-sm text-slate-400 mt-2">
+                Transformamos o descarte logístico de papelão em ferramenta
+                de eficiência de fila e proteção ambiental.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* ============ 6.8. NÓS VS. O MERCADO ============ */}
       <Section id="nos-vs-mercado">
         <Eyebrow>Vantagem competitiva</Eyebrow>
