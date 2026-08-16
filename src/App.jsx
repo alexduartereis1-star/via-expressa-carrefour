@@ -956,14 +956,14 @@ export default function ViaExpressa() {
             {
               icon: <ShoppingBag size={38} />,
               step: "02",
-              title: "Ensacola no corredor",
-              text: "Fim do balcão de ensacolamento. O produto vai direto do gancho para a ecobag. O tempo morto desaparece.",
+              title: "Carrinho Livre",
+              text: "O produto vai da gôndola direto para o carrinho. Sem sacolas cobrindo os itens, garantimos visão total para a auditoria. A organização final das compras é feita apenas após o pagamento, na nossa área de apoio.",
             },
             {
               icon: <ShieldCheck size={38} />,
               step: "03",
               title: "Auditoria visual e rajada",
-              text: "O operador confere a sacola e lê a rajada de códigos na tela com o leitor do caixa. Cupom fiscal em segundos.",
+              text: "O operador faz a conferência visual do carrinho aberto e lê a rajada de códigos na tela com o leitor do caixa. Cupom fiscal em segundos.",
             },
           ].map((s) => (
             <Card key={s.step}>
@@ -1054,13 +1054,14 @@ export default function ViaExpressa() {
               2
             </span>
             <h3 className="text-2xl sm:text-3xl 2xl:text-4xl font-bold" style={{ color: INK }}>
-              Passo 2: Escaneou, Guardou
+              Passo 2: Direto para o Carrinho
             </h3>
             <p className="mt-3 max-w-2xl text-base sm:text-lg 2xl:text-xl leading-relaxed" style={{ color: MUTED }}>
-              No corredor, a mágica acontece. O cliente escaneia o código
-              de barras com a própria câmera e, no mesmo instante, já
-              acomoda o produto nas sacolas dentro do carrinho. O trabalho
-              braçal de balcão é eliminado durante a caminhada.
+              No corredor, a agilidade acontece. O cliente escaneia o código
+              de barras com a própria câmera e coloca o produto livremente
+              no carrinho, sem usar sacolas. Isso elimina o atrito na
+              compra e garante uma auditoria visual 100% transparente na
+              chegada ao caixa.
             </p>
           </div>
 
@@ -1303,7 +1304,7 @@ export default function ViaExpressa() {
               >
                 {[
                   { icon: <ShoppingCart size={28} />, t: "Até 20 itens" },
-                  { icon: <ShoppingBag size={28} />, t: "Ensacole no corredor" },
+                  { icon: <ShoppingBag size={28} />, t: "Direto no carrinho" },
                   { icon: <Timer size={28} />, t: "Saia em 90s" },
                 ].map((r) => (
                   <div key={r.t} className="flex items-center gap-3">
