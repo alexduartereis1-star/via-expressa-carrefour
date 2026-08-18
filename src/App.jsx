@@ -1,4 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 import {
   ScanLine,
   ShoppingBag,
@@ -37,6 +42,22 @@ const BRAND_LINE = "rgba(30, 82, 168, 0.45)";
 const BG = "#111827";
 const INK = "#F8FAFC";
 const MUTED = "#94A3B8";
+
+/* --- Estilo customizado do carrossel Swiper (Tour Visual) --- */
+const tourSwiperStyles = `
+  .tour-visual-swiper .swiper-button-next,
+  .tour-visual-swiper .swiper-button-prev {
+    color: #1E52A8;
+  }
+  .tour-visual-swiper .swiper-pagination-bullet {
+    background: #94A3B8;
+    opacity: 0.5;
+  }
+  .tour-visual-swiper .swiper-pagination-bullet-active {
+    background: #1E52A8;
+    opacity: 1;
+  }
+`;
 
 /* ------------------------------------------------------------------
    VÍDEOS DA SEÇÃO "A JORNADA INTEGRADA (FÍSICO + DIGITAL)" — passo 3 (checkout)
@@ -182,6 +203,51 @@ function VideoEmbed({ src, aspectClass, label, caption }) {
   );
 }
 
+const TOUR_SLIDES = [
+  {
+    id: 1,
+    imagem_url: imgTour1,
+    titulo: "1. Carrinho Abastecido",
+    texto: "Faça suas compras de até 15 itens. Tudo direto no carrinho.",
+  },
+  {
+    id: 2,
+    imagem_url: imgTour2,
+    titulo: "2. Chegada à Via Expressa",
+    texto: "Dirija-se ao nosso caixa rápido exclusivo.",
+  },
+  {
+    id: 3,
+    imagem_url: imgTour3,
+    titulo: "3. Posição de Conforto",
+    texto: "Estacione o carrinho ao lado da operadora. Não precisa descarregar na esteira.",
+  },
+  {
+    id: 4,
+    imagem_url: null, // foto pendente — leitura em rajada usando o espelho do PDV
+    titulo: "4. Leitura em Rajada e Segura",
+    texto: "Operadora realiza leitura e auditoria visual usando o espelho do PDV.",
+  },
+  {
+    id: 5,
+    imagem_url: imgTour5,
+    titulo: "5. Escaneamento Contínuo",
+    texto: "Leitura contínua de cada item diretamente de dentro do carrinho.",
+  },
+  {
+    id: 6,
+    imagem_url: imgTour6,
+    titulo: "6. Pagamento em Segundos",
+    texto: "Processo de pagamento otimizado para velocidade máxima.",
+  },
+  {
+    id: 7,
+    imagem_url: imgTour7,
+    titulo: "7. Empacote no Seu Tempo",
+    texto: "Use a nossa Área de Apoio para ensacar suas compras com calma.",
+  },
+];
+
 const SETE_TELAS = [
   {
     n: "01",
@@ -325,6 +391,12 @@ import imgLojaSolucaoSemAtrito from "./assets/desafio-friccao/image_73731a.png";
 import imgFriccaoZero from "./assets/desafio-friccao/image_731cf8.png";
 import imgEtiquetaBalanca from "./assets/arquitetura/image_722cbc.png";
 import imgFastTrackPratica from "./assets/arquitetura/image_31d19f.jpg";
+import imgTour1 from "./assets/tour-visual/tour-1-carrinho-abastecido.jpg";
+import imgTour2 from "./assets/tour-visual/tour-2-chegada.jpg";
+import imgTour3 from "./assets/tour-visual/tour-3-posicao-conforto.jpg";
+import imgTour5 from "./assets/tour-visual/tour-5-escaneamento.jpg";
+import imgTour6 from "./assets/tour-visual/tour-6-pagamento.jpg";
+import imgTour7 from "./assets/tour-visual/tour-7-empacote.jpg";
 
 function CarrefourMark({ size = 56 }) {
   return (
@@ -473,6 +545,7 @@ export default function ViaExpressa() {
           "Inter, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
       }}
     >
+      <style>{tourSwiperStyles}</style>
       <WhatsAppFloatButton />
 
       {/* ============ 1. HERO ============ */}
@@ -990,7 +1063,71 @@ export default function ViaExpressa() {
             </Card>
           ))}
         </div>
+      </Section>
 
+      {/* ============ TOUR VISUAL — CARROSSEL DA JORNADA FRICÇÃO ZERO ============ */}
+      <div className="w-full bg-slate-950 py-20">
+        <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-16">
+          <h2
+            data-reveal
+            className="text-center text-3xl md:text-4xl font-black text-white"
+          >
+            Tour Visual: A Jornada Fricção Zero
+          </h2>
+          <p
+            data-reveal
+            className="text-center text-slate-400 mt-4 max-w-2xl mx-auto"
+          >
+            Veja como é simples e rápido passar suas compras com o nosso
+            sistema exclusivo.
+          </p>
+
+          <div data-reveal className="mt-12 tour-visual-swiper">
+            <Swiper
+              modules={[Navigation, Pagination]}
+              navigation
+              pagination={{ clickable: true }}
+              spaceBetween={24}
+              breakpoints={{
+                0: { slidesPerView: 1 },
+                768: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 },
+              }}
+              className="pb-12"
+            >
+              {TOUR_SLIDES.map((slide) => (
+                <SwiperSlide key={slide.id}>
+                  <div className="bg-[#0A0E18] border border-slate-800 rounded-xl overflow-hidden h-full flex flex-col">
+                    {slide.imagem_url ? (
+                      <img
+                        src={slide.imagem_url}
+                        alt={slide.titulo}
+                        className="w-full h-56 object-cover"
+                      />
+                    ) : (
+                      <div className="w-full h-56 flex flex-col items-center justify-center gap-2 bg-slate-900/60 text-slate-500">
+                        <Camera size={28} />
+                        <span className="text-xs uppercase tracking-widest">
+                          Foto em breve
+                        </span>
+                      </div>
+                    )}
+                    <div className="p-6 flex-1 flex flex-col">
+                      <h3 className="text-xl font-bold text-white">
+                        {slide.titulo}
+                      </h3>
+                      <p className="text-slate-400 mt-2">{slide.texto}</p>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+        </div>
+      </div>
+
+      {/* ============ 4.5b. DETALHAMENTO DA JORNADA (PASSO 1, 2 E 3) ============ */}
+      <Section id="jornada-detalhamento">
         {/* ---------- Passo 1 — Físico (esquerda) x Digital (direita) ---------- */}
         <div className="mt-16 sm:mt-20">
           <div data-reveal className="mb-8">
