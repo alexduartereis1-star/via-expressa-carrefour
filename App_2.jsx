@@ -457,7 +457,6 @@ export default function ViaExpressa() {
   useReveal();
   const [pulse, setPulse] = useState(false);
   const [hoveredScreen, setHoveredScreen] = useState(null);
-  const [showLetterModal, setShowLetterModal] = useState(false);
   useEffect(() => {
     const t = setInterval(() => setPulse((p) => !p), 1200);
     return () => clearInterval(t);
@@ -501,9 +500,8 @@ export default function ViaExpressa() {
             className="mt-8 sm:mt-10 max-w-3xl 2xl:max-w-5xl text-base sm:text-xl lg:text-2xl 2xl:text-4xl leading-relaxed"
             style={{ color: MUTED }}
           >
-            Como transformar 1 operador na produtividade de até 5, estancar a
-            evasão de clientes e eliminar o gargalo de ensacolamento no
-            balcão —{" "}
+            Como transformar 1 operador na produtividade de 3, estancar a evasão
+            de clientes e eliminar o tempo de ensacolamento —{" "}
             <span className="font-semibold" style={{ color: INK }}>
               sem trocar o ERP da loja.
             </span>
@@ -703,7 +701,7 @@ export default function ViaExpressa() {
           <p
             className="text-5xl md:text-7xl lg:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-[#1E52A8] leading-tight"
           >
-            15 itens em 90 segundos.
+            20 itens em 90 segundos.
           </p>
 
           {/* Linha 3 — O Porquê */}
@@ -946,7 +944,7 @@ export default function ViaExpressa() {
           loja e o que acontece na tela do celular, passo a passo.
         </Lead>
 
-        {/* ---------- Resumo: 15 itens em 90 segundos ---------- */}
+        {/* ---------- Resumo: 20 itens em 90 segundos ---------- */}
         <div className="mt-10 sm:mt-16 grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-8">
           {[
             {
@@ -1305,7 +1303,7 @@ export default function ViaExpressa() {
                 style={{ background: "#1a2332", border: `1px solid ${BRAND_LINE}` }}
               >
                 {[
-                  { icon: <ShoppingCart size={28} />, t: "Até 15 itens" },
+                  { icon: <ShoppingCart size={28} />, t: "Até 20 itens" },
                   { icon: <ShoppingBag size={28} />, t: "Direto no carrinho" },
                   { icon: <Timer size={28} />, t: "Saia em 90s" },
                 ].map((r) => (
@@ -1336,7 +1334,7 @@ export default function ViaExpressa() {
           intervalo, veja a diferença de capacidade de escoamento por
           operador.{" "}
           <span className="italic opacity-75">
-            (Base de cálculo: Ticket médio de R$ 132 para compras de até 15
+            (Base de cálculo: Ticket médio de R$ 132 para compras de até 20
             itens).
           </span>
         </Lead>
@@ -1364,7 +1362,7 @@ export default function ViaExpressa() {
               className="mt-4 text-sm sm:text-base 2xl:text-lg leading-relaxed"
               style={{ color: MUTED }}
             >
-              3 a 5 minutos por cliente (até 15 itens), do início do
+              3 a 5 minutos por cliente (até 20 itens), do início do
               escaneamento ao pagamento.
             </p>
           </Card>
@@ -2062,22 +2060,6 @@ export default function ViaExpressa() {
           </div>
         </div>
 
-        {/* Botão de acionamento — Carta ao Diretor */}
-        <div data-reveal className="mt-16 sm:mt-20 flex justify-center">
-          <button
-            type="button"
-            onClick={() => setShowLetterModal(true)}
-            className="px-8 py-4 rounded-xl font-bold text-base sm:text-lg transition-transform hover:scale-[1.03] focus:outline-none focus:ring-4"
-            style={{
-              background: "rgba(255,255,255,0.04)",
-              border: `1px solid ${BRAND_LINE}`,
-              color: INK,
-            }}
-          >
-            Ler carta ao diretor
-          </button>
-        </div>
-
         <footer
           className="mt-20 sm:mt-28 pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
           style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}
@@ -2088,78 +2070,6 @@ export default function ViaExpressa() {
           </span>
         </footer>
       </Section>
-
-      {/* ============ MODAL — CARTA AO DIRETOR ============ */}
-      {showLetterModal && (
-        <div
-          className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-8"
-          style={{ background: "rgba(10, 14, 24, 0.85)", backdropFilter: "blur(8px)" }}
-          onClick={() => setShowLetterModal(false)}
-        >
-          <div
-            className="relative w-full max-w-2xl max-h-[85vh] overflow-y-auto rounded-2xl p-8 sm:p-12"
-            style={{
-              background: BG,
-              border: `1px solid ${BRAND_LINE}`,
-              boxShadow: `0 0 80px ${BRAND_SOFT}`,
-            }}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              type="button"
-              onClick={() => setShowLetterModal(false)}
-              aria-label="Fechar"
-              className="absolute top-5 right-5 w-9 h-9 flex items-center justify-center rounded-full transition-colors"
-              style={{ background: "rgba(255,255,255,0.06)", color: MUTED }}
-            >
-              <X size={18} />
-            </button>
-
-            <h3 className="text-3xl font-black text-white mb-8">Daniel,</h3>
-
-            <p className="text-lg text-slate-300 mb-5 leading-relaxed">
-              No varejo de alta performance, a inovação só faz sentido quando
-              resolve uma dor crônica da operação sem gerar novos custos. E é
-              exatamente isso que a Via Expressa entrega.
-            </p>
-
-            <p className="text-lg text-white font-medium mb-5 leading-relaxed">
-              Hoje, não existe concorrência para o que estamos criando.
-              Enquanto o mercado ainda obriga o cliente a escolher entre as
-              filas quilométricas do caixa tradicional ou o alto índice de
-              perdas do self-checkout, nós desenhamos uma "Terceira Via"
-              exclusiva. Somos os únicos a entregar um fluxo de Fricção Zero
-              blindado, usando o nosso próprio ERP legado.
-            </p>
-
-            <p className="text-lg text-slate-300 mb-5 leading-relaxed">
-              O que temos aqui não é um simples teste de tecnologia; é a
-              oportunidade de transformar a sua loja no benchmark absoluto de
-              inovação da rede e do mercado. Em 30 dias de piloto, vamos
-              provar como destravar quase R$ 90 mil de fluxo financeiro
-              diário por caixa e eliminar a despesa de 100 mil sacolas
-              plásticas.
-            </p>
-
-            <p className="text-xl text-blue-400 font-semibold mb-5 leading-relaxed">
-              Ao validarmos o sucesso deste formato inédito, você terá em
-              mãos o business case perfeito para liderar a expansão da
-              operação Fricção Zero para todas as lojas da nossa regional.
-            </p>
-
-            <p className="text-lg text-slate-300 mb-10 leading-relaxed">
-              O mapa operacional está traçado. A prevenção de perdas está
-              100% blindada com o fluxo do carrinho livre. O risco de
-              implantação é zero.
-            </p>
-
-            <p className="text-2xl font-black text-white">
-              A única coisa que separa a nossa frente de caixa do futuro é a
-              sua autorização. Vamos virar essa chave?
-            </p>
-          </div>
-        </div>
-      )}
     </div>
   );
 }

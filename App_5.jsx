@@ -703,7 +703,7 @@ export default function ViaExpressa() {
           <p
             className="text-5xl md:text-7xl lg:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-[#1E52A8] leading-tight"
           >
-            15 itens em 90 segundos.
+            20 itens em 90 segundos.
           </p>
 
           {/* Linha 3 — O Porquê */}
@@ -946,7 +946,7 @@ export default function ViaExpressa() {
           loja e o que acontece na tela do celular, passo a passo.
         </Lead>
 
-        {/* ---------- Resumo: 15 itens em 90 segundos ---------- */}
+        {/* ---------- Resumo: 20 itens em 90 segundos ---------- */}
         <div className="mt-10 sm:mt-16 grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-8">
           {[
             {
@@ -1305,7 +1305,7 @@ export default function ViaExpressa() {
                 style={{ background: "#1a2332", border: `1px solid ${BRAND_LINE}` }}
               >
                 {[
-                  { icon: <ShoppingCart size={28} />, t: "Até 15 itens" },
+                  { icon: <ShoppingCart size={28} />, t: "Até 20 itens" },
                   { icon: <ShoppingBag size={28} />, t: "Direto no carrinho" },
                   { icon: <Timer size={28} />, t: "Saia em 90s" },
                 ].map((r) => (
@@ -1336,7 +1336,7 @@ export default function ViaExpressa() {
           intervalo, veja a diferença de capacidade de escoamento por
           operador.{" "}
           <span className="italic opacity-75">
-            (Base de cálculo: Ticket médio de R$ 132 para compras de até 15
+            (Base de cálculo: Ticket médio de R$ 132 para compras de até 20
             itens).
           </span>
         </Lead>
@@ -1364,7 +1364,7 @@ export default function ViaExpressa() {
               className="mt-4 text-sm sm:text-base 2xl:text-lg leading-relaxed"
               style={{ color: MUTED }}
             >
-              3 a 5 minutos por cliente (até 15 itens), do início do
+              3 a 5 minutos por cliente (até 20 itens), do início do
               escaneamento ao pagamento.
             </p>
           </Card>
