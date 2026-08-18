@@ -50,7 +50,7 @@ const MUTED = "#94A3B8";
    com o ícone de play continua aparecendo normalmente.
    ------------------------------------------------------------------ */
 const VIDEO_CHECKOUT_HORIZONTAL_URL = "https://www.youtube.com/embed/VqnNtH0grgI"; // vídeo 16:9 — visão de tela
-const VIDEO_CHECKOUT_VERTICAL_URL = "https://www.youtube.com/embed/sHe9B5WB_VE"; // vídeo 9:16 — gravação no celular
+const VIDEO_CHECKOUT_VERTICAL_URL = "https://www.youtube.com/embed/qt4eI1imC4k"; // vídeo 9:16 — gravação no celular
 
 /* --- utilitário: revelar no scroll (respeita prefers-reduced-motion) --- */
 function useReveal() {
