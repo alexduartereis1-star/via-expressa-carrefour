@@ -206,45 +206,39 @@ function VideoEmbed({ src, aspectClass, label, caption }) {
 const TOUR_SLIDES = [
   {
     id: 1,
-    imagem_url: imgTour1,
-    titulo: "1. Carrinho Abastecido",
-    texto: "Faça suas compras de até 15 itens. Tudo direto no carrinho.",
+    imagem_url: imgTour2,
+    titulo: "1. Chegada à Via Expressa",
+    texto: "Dirija-se ao nosso caixa rápido exclusivo. Fila Zero ou extremamente reduzida.",
   },
   {
     id: 2,
-    imagem_url: imgTour2,
-    titulo: "2. Chegada à Via Expressa",
-    texto: "Dirija-se ao nosso caixa rápido exclusivo.",
+    imagem_url: imgTour1,
+    titulo: "2. Carrinho Abastecido",
+    texto: "Faça suas compras de até 15 itens. Tudo direto no carrinho, sem sacolas no corredor.",
   },
   {
     id: 3,
     imagem_url: imgTour3,
     titulo: "3. Posição de Conforto",
-    texto: "Estacione o carrinho ao lado da operadora. Não precisa descarregar na esteira.",
+    texto: "Estacione o carrinho ao lado da operadora. Zero esforço físico e sem descarregar a esteira.",
   },
   {
     id: 4,
-    imagem_url: null, // foto pendente — leitura em rajada usando o espelho do PDV
-    titulo: "4. Leitura em Rajada e Segura",
-    texto: "Operadora realiza leitura e auditoria visual usando o espelho do PDV.",
+    imagem_url: imgTour4,
+    titulo: "4. Ergonomia e Espelho",
+    texto: "A operadora utiliza o espelho do PDV para conferir o carrinho com conforto absoluto e risco ergonômico zero.",
   },
   {
     id: 5,
     imagem_url: imgTour5,
     titulo: "5. Escaneamento Contínuo",
-    texto: "Leitura contínua de cada item diretamente de dentro do carrinho.",
+    texto: "Leitura rápida em rajada com a pistola diretamente de dentro do carrinho do cliente.",
   },
   {
     id: 6,
     imagem_url: imgTour6,
     titulo: "6. Pagamento em Segundos",
-    texto: "Processo de pagamento otimizado para velocidade máxima.",
-  },
-  {
-    id: 7,
-    imagem_url: imgTour7,
-    titulo: "7. Empacote no Seu Tempo",
-    texto: "Use a nossa Área de Apoio para ensacar suas compras com calma.",
+    texto: "Aproximou o cartão, pagou, liberou. O cliente avança para a Área de Apoio.",
   },
 ];
 
@@ -394,9 +388,9 @@ import imgFastTrackPratica from "./assets/arquitetura/image_31d19f.jpg";
 import imgTour1 from "./assets/tour-visual/tour-1-carrinho-abastecido.jpg";
 import imgTour2 from "./assets/tour-visual/tour-2-chegada.jpg";
 import imgTour3 from "./assets/tour-visual/tour-3-posicao-conforto.jpg";
+import imgTour4 from "./assets/tour-visual/tour-4-espelho.jpg";
 import imgTour5 from "./assets/tour-visual/tour-5-escaneamento.jpg";
 import imgTour6 from "./assets/tour-visual/tour-6-pagamento.jpg";
-import imgTour7 from "./assets/tour-visual/tour-7-empacote.jpg";
 
 function CarrefourMark({ size = 56 }) {
   return (
