@@ -378,7 +378,7 @@ import imgPilar2Constrangimento from "./assets/reacao-em-cadeia/pilar2-constrang
 import imgPilar3CarrinhoCheio from "./assets/reacao-em-cadeia/pilar3-carrinho-cheio.jpg";
 import imgJornadaEntrada from "./assets/jornada-na-pratica/1786108270790.jpeg";
 import imgJornadaEscaneando from "./assets/jornada-na-pratica/passo2a-escaneando.jpg";
-import imgJornadaEnsacolando from "./assets/jornada-na-pratica/passo2b-ensacolando.jpg";
+import imgJornadaCarrinhoLivre from "./assets/jornada-na-pratica/passo2b-carrinho-livre.jpg";
 import imgRoadmapRajada from "./assets/roadmap-evolucao/rajada-codigos.jpg";
 import imgClienteFogeCadastro from "./assets/desafio-friccao/image_7389fd.png";
 import imgLojaSolucaoSemAtrito from "./assets/desafio-friccao/image_73731a.png";
@@ -1246,8 +1246,8 @@ export default function ViaExpressa() {
                   }}
                 >
                   <img
-                    src={imgJornadaEnsacolando}
-                    alt="Cliente ensacolando o produto direto no carrinho"
+                    src={imgJornadaCarrinhoLivre}
+                    alt="Produtos soltos direto no carrinho, sem sacolas — fluxo Carrinho Livre"
                     className="w-full h-full object-cover aspect-[3/4]"
                   />
                 </div>
